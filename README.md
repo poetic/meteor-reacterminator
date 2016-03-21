@@ -36,4 +36,10 @@ meterminator webflow.zip
 
 ### TODO
 - generate a working meteor app from webflow (html css js)
+  - create
+    - remove all files
+    - create files
+  - update
+    - create files override by default, accept options
+
 - use reacterminator to generate the front end files in client/imports/components

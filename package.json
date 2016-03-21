@@ -1,7 +1,7 @@
 {
   "name": "meterminator",
   "version": "0.0.1",
-  "description": "Convert html to a functional meteor app.",
+  "description": "Convert annotated htmls and css files to a functional meteor app.",
   "main": "bin/index.js",
   "scripts": {
     "test": "standard && istanbul cover _mocha",
@@ -33,6 +33,7 @@
     "standard": "^6.0.8"
   },
   "dependencies": {
-    "reacterminator": "0.0.3"
+    "reacterminator": "0.0.3",
+    "shelljs": "^0.6.0"
   }
 }
