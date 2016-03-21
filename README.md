@@ -5,7 +5,7 @@
 [![js-standard-style][js-standard-style-image]][js-standard-style-url]
 
 [travis-image]:            https://img.shields.io/travis/poetic/meterminator.svg?branch=master
-[travis-url]:              https://travis-ci.org/poetic/meterminator
+[travis-url]:              https://travis-ci.com/poetic/meterminator
 [npm-image]:               https://img.shields.io/npm/v/meterminator.svg
 [npm-url]:                 https://npmjs.org/package/meterminator
 [coverall-image]:          https://img.shields.io/coveralls/poetic/meterminator.svg
