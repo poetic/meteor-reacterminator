@@ -16,11 +16,24 @@
 ## Usage
 
 ### How to user meterminator
+meteor create --release 1.3-rc.4 example
+npm install --save-dev meterminator
+node\_modules/.bin/meterminator path/to/html/project/
 
 ### CLI
+meterminator path/to/html/project/
+meterminator path/to/html/project/sample.html
+meterminator webflow.zip
 
 ## Development
 
-### NOTE
+### Setup
+- meteor create --release 1.3-rc.4 meteor-project
+
+### Note
 - coverall does not work because we do not have a pro account and this repo
   is private
+
+### TODO
+- generate a working meteor app from webflow (html css js)
+- use reacterminator to generate the front end files in client/imports/components
