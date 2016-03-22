@@ -16,14 +16,33 @@
 ## Usage
 
 ### How to user meterminator
+```
 meteor create --release 1.3-rc.4 example
-npm install --save-dev meterminator
-node\_modules/.bin/meterminator path/to/html/project/
+cd example
+npm install --save-dev poetic/meterminator
+node\_modules/.bin/meterminator --create
+```
 
 ### CLI
-meterminator path/to/html/project/
-meterminator path/to/html/project/sample.html
-meterminator webflow.zip
+Usage: meterminator [options]
+
+Convert annotated htmls and css files to a functional meteor app
+
+Options:
+
+  -h, --help                   output usage information
+  -c, --create                 Remove default meteor files, add and remove packages for a react project
+  -u, --update                 Convert htmls, add the files into the meteor app
+  -i, --input-path [.design/]  specify input path, it can be a file or a folder
+  -r, --recursive              find files in the input folder recursivly
+  -o, --override-files         override existing files in the output path
+
+Examples:
+
+  $ meterminator -c
+  $ meterminator -u
+  $ meterminator -u -i design/
+  $ meterminator -u -i design.html
 
 ## Development
 
@@ -35,8 +54,5 @@ meterminator webflow.zip
   is private
 
 ### TODO
-- generate a working meteor app from webflow (html css js)
-  - update
-    - create files override by default, accept options
-
 - use reacterminator to generate the front end files in client/imports/components
+- travis ci is doing something funkey on meteor, fix it

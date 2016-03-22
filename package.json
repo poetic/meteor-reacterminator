@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "Convert annotated htmls and css files to a functional meteor app.",
   "main": "bin/index.js",
+  "bin": "bin/meterminator.js",
   "scripts": {
     "test": "standard && istanbul cover _mocha --report lcovonly && coveralls < coverage/lcov.info",
     "test:watch": "mocha --watch"
@@ -28,13 +29,13 @@
     "coveralls": "^2.11.8",
     "istanbul": "^0.4.2",
     "jsdoc": "^3.4.0",
-    "lodash": "^4.6.1",
     "mocha": "^2.4.5",
     "standard": "^6.0.8"
   },
   "dependencies": {
     "chalk": "^1.1.1",
-    "reacterminator": "0.0.3",
+    "lodash": "^4.6.1",
+    "reacterminator": "^0.0.4",
     "shelljs": "^0.6.0"
   },
   "standard": {

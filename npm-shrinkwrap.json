@@ -291,9 +291,9 @@
           "resolved": "https://registry.npmjs.org/glob/-/glob-6.0.4.tgz"
         },
         "ignore": {
-          "version": "3.0.10",
+          "version": "3.0.11",
           "from": "ignore@>=3.0.9 <4.0.0",
-          "resolved": "https://registry.npmjs.org/ignore/-/ignore-3.0.10.tgz"
+          "resolved": "https://registry.npmjs.org/ignore/-/ignore-3.0.11.tgz"
         }
       }
     },
@@ -1044,8 +1044,8 @@
       "resolved": "https://registry.npmjs.org/qs/-/qs-5.2.0.tgz"
     },
     "reacterminator": {
-      "version": "0.0.3",
-      "from": "reacterminator@0.0.3",
+      "version": "0.0.4",
+      "from": "reacterminator@>=0.0.4 <0.0.5",
       "dependencies": {
         "abab": {
           "version": "1.0.3",
@@ -1146,7 +1146,8 @@
           "dependencies": {
             "lodash": {
               "version": "3.10.1",
-              "from": "lodash@>=3.10.1 <4.0.0"
+              "from": "lodash@3.10.1",
+              "resolved": "https://registry.npmjs.org/lodash/-/lodash-3.10.1.tgz"
             }
           }
         },
@@ -2231,7 +2232,7 @@
     },
     "shelljs": {
       "version": "0.6.0",
-      "from": "shelljs@latest",
+      "from": "shelljs@>=0.6.0 <0.7.0",
       "resolved": "https://registry.npmjs.org/shelljs/-/shelljs-0.6.0.tgz"
     },
     "sigmund": {
