@@ -8,7 +8,7 @@
 [travis-url]:              https://travis-ci.com/poetic/meterminator
 [npm-image]:               https://img.shields.io/npm/v/meterminator.svg
 [npm-url]:                 https://npmjs.org/package/meterminator
-[coverall-image]:          https://img.shields.io/coveralls/poetic/meterminator.svg
+[coverall-image]:          https://coveralls.io/repos/github/poetic/meterminator/badge.svg?branch=master&t=DQDCRT
 [coverall-url]:            https://coveralls.io/github/poetic/meterminator
 [js-standard-style-image]: https://img.shields.io/badge/code%20style-standard-brightgreen.svg
 [js-standard-style-url]:   http://standardjs.com/
