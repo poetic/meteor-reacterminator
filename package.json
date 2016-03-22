@@ -39,6 +39,7 @@
   },
   "standard": {
     "ignore": [
+      "fresh-meteor-app",
       "lib/templates/"
     ]
   }
