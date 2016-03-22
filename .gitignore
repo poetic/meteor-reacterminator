@@ -2,5 +2,4 @@ node_modules
 coverage
 npm-debug.log
 doc
-example
-meteor-project
+test-example
