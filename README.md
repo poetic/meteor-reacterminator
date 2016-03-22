@@ -24,6 +24,7 @@ node\_modules/.bin/meterminator --create
 ```
 
 ### CLI
+```
 Usage: meterminator [options]
 
 Convert annotated htmls and css files to a functional meteor app
@@ -43,16 +44,6 @@ Examples:
   $ meterminator -u
   $ meterminator -u -i design/
   $ meterminator -u -i design.html
+```
 
 ## Development
-
-### Setup
-- meteor create --release 1.3-rc.4 meteor-project
-
-### Note
-- coverall does not work because we do not have a pro account and this repo
-  is private
-
-### TODO
-- use reacterminator to generate the front end files in client/imports/components
-- travis ci is doing something funkey on meteor, fix it
