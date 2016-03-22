@@ -3,30 +3,22 @@
 var _ = require('lodash')
 var program = require('commander')
 var meterminator = require('../lib/index')
-var inputPath
-
-meterminator()
-process.exit()
 
 program
   .description('Convert annotated htmls and css files to a functional meteor app')
-  .arguments('<inputPath>')
-  .action(function (inputPathArgument) {
-    inputPath = _.trim(inputPathArgument)
-    if (!inputPath) {
-      throw new Error('Argument <inputPath> is required')
-    }
-  })
-  .option('-p, --output-path [./component]', 'specify output path')
-  .option('-r, --recursive', 'find files in the folder recursivly')
+  .option('-c, --create', 'Remove default meteor files, add and remove packages for a react project')
+  .option('-u, --update', 'Convert htmls, add the files into the meteor app')
+  .option('-i, --input-path [.design/]', 'specify input path, it can be a file or a folder')
+  .option('-r, --recursive', 'find files in the input folder recursivly')
   .option('-o, --override-files', 'override existing files in the output path')
 
 program.on('--help', function () {
   console.log('  Examples:')
   console.log('')
-  console.log('    $ meterminator design.html')
-  console.log('    $ meterminator design/')
-  console.log('    $ meterminator design.zip')
+  console.log('    $ meterminator -c')
+  console.log('    $ meterminator -u')
+  console.log('    $ meterminator -u -i design/')
+  console.log('    $ meterminator -u -i design.html')
   console.log('')
 })
 
@@ -38,14 +30,15 @@ if (!process.argv.slice(2).length) {
 }
 
 // prepare options
-var options = _.extend(
-  {generateFiles: true},
-  _.pick(program, ['outputPath', 'recursive', 'overrideFiles'])
+var task = _.find(['create', 'update'], function (taskName) {
+  return program[taskName]
+})
+
+var options = _.pick(
+  program,
+  ['inputPath', 'recursive', 'overrideFiles']
 )
 
 var cleanedOptions = _.omitBy(options, _.isUndefined)
 
-meterminator(
-  {type: 'path', content: inputPath},
-  cleanedOptions
-)
+meterminator(task, cleanedOptions)
