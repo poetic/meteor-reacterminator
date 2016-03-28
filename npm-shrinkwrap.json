@@ -1044,8 +1044,8 @@
       "resolved": "https://registry.npmjs.org/qs/-/qs-5.2.0.tgz"
     },
     "reacterminator": {
-      "version": "0.0.4",
-      "from": "reacterminator@>=0.0.4 <0.0.5",
+      "version": "0.0.10",
+      "from": "reacterminator@0.0.10",
       "dependencies": {
         "abab": {
           "version": "1.0.3",

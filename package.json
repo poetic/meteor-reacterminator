@@ -37,7 +37,7 @@
     "chalk": "^1.1.1",
     "commander": "^2.9.0",
     "lodash": "^4.6.1",
-    "reacterminator": "^0.0.4",
+    "reacterminator": "^0.0.10",
     "shelljs": "^0.6.0"
   },
   "standard": {
