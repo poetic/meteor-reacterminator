@@ -19,8 +19,9 @@
 ```
 meteor create --release 1.3 example
 cd example
-npm install --save-dev poetic/meterminator
-node\_modules/.bin/meterminator --create
+npm install -g poetic/meterminator
+meterminator --create
+meterminator --update
 ```
 
 ### CLI
