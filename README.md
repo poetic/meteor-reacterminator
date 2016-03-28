@@ -17,7 +17,7 @@
 
 ### How to user meterminator
 ```
-meteor create --release 1.3-rc.4 example
+meteor create --release 1.3 example
 cd example
 npm install --save-dev poetic/meterminator
 node\_modules/.bin/meterminator --create
