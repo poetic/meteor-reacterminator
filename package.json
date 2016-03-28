@@ -6,7 +6,8 @@
   "bin": "bin/meterminator.js",
   "scripts": {
     "test": "standard && istanbul cover _mocha --report lcovonly && coveralls < coverage/lcov.info",
-    "test:watch": "mocha --watch"
+    "test:watch": "mocha --watch",
+    "test:fast": "mocha"
   },
   "repository": {
     "type": "git",
