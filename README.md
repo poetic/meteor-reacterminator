@@ -32,7 +32,7 @@ Convert annotated htmls and css files to a functional meteor app
 Options:
 
   -h, --help                   output usage information
-  -c, --create                 Remove default meteor files, add and remove packages for a react project
+  -c, --create                 Remove default meteor files, configure packages for a react project
   -u, --update                 Convert htmls, add the files into the meteor app
   -i, --input-path [.design/]  specify input path, it can be a file or a folder
   -r, --recursive              find files in the input folder recursivly
