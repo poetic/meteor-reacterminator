@@ -14,7 +14,7 @@ describe('update', function () {
     meterminator('update')
 
     assert(fs.statSync('client/imports/components/ComponentA.jsx').isFile())
-    assert(fs.statSync('client/public/images/webflow.jpg').isFile())
+    assert(fs.statSync('public/images/webflow.jpg').isFile())
     assert(fs.statSync('client/css/webflow.css').isFile())
     assert(fs.statSync('client/js/webflow.js').isFile())
   })
