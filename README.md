@@ -4,8 +4,8 @@
 [![coverall][coverall-image]][coverall-url]
 [![js-standard-style][js-standard-style-image]][js-standard-style-url]
 
-[travis-image]:            https://travis-ci.com/poetic/meterminator.svg?token=n9msxeiUd3RfRLLkqRQL&branch=master
-[travis-url]:              https://travis-ci.com/poetic/meterminator
+[travis-image]:            https://travis-ci.com/poetic/stanza.svg?token=n9msxeiUd3RfRLLkqRQL&branch=master
+[travis-url]:              https://travis-ci.com/poetic/stanza
 [npm-image]:               https://img.shields.io/npm/v/meterminator.svg
 [npm-url]:                 https://npmjs.org/package/meterminator
 [coverall-image]:          https://coveralls.io/repos/github/poetic/meterminator/badge.svg?branch=master&t=DQDCRT
