@@ -8,7 +8,7 @@
 [travis-url]:              https://travis-ci.com/poetic/stanza
 [npm-image]:               https://img.shields.io/npm/v/stanza.svg
 [npm-url]:                 https://npmjs.org/package/stanza
-[coverall-image]:          https://coveralls.io/repos/github/poetic/stanza/badge.svg?branch=master&t=DQDCRT
+[coverall-image]:          https://coveralls.io/repos/github/poetic/stanza/badge.svg?branch=master&t=1gm6MP
 [coverall-url]:            https://coveralls.io/github/poetic/stanza
 [js-standard-style-image]: https://img.shields.io/badge/code%20style-standard-brightgreen.svg
 [js-standard-style-url]:   http://standardjs.com/
