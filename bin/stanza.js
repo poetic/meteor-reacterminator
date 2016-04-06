@@ -6,11 +6,33 @@ var stanza = require('../lib/index')
 
 program
   .description('Poetic meteor-react project generator')
-  .option('-c, --create', 'Remove default meteor files, add and remove packages for a react project')
-  .option('-u, --update', 'Convert htmls, add the files into the meteor app')
-  .option('-i, --input-path [./.design]', 'specify input path, it can be a file or a folder')
-  .option('-r, --recursive', 'find files in the input folder recursivly')
-  .option('-o, --override-files', 'override existing files in the output path')
+  .option(
+    '-c, --create',
+    'Remove default meteor files, add and remove packages for a react project'
+  )
+  .option(
+    '-u, --update',
+    'Convert htmls, add the files into the meteor app'
+  )
+  .option(
+    '-i, --input-path [.design]', 'specify input path, it can be a file or a folder',
+    '.design'
+  )
+  .option(
+    '-r, --recursive [true]',
+    'find files in the input folder recursivly',
+    toBool,
+    true
+  )
+  .option(
+    '-o, --override-files [true]', 'override existing files in the output path',
+    toBool,
+    true
+  )
+
+function toBool (str) {
+  return /^t/i.test(str)
+}
 
 program.on('--help', function () {
   console.log('  Examples:')
