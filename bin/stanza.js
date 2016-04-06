@@ -2,7 +2,7 @@
 
 var _ = require('lodash')
 var program = require('commander')
-var meterminator = require('../lib/index')
+var stanza = require('../lib/index')
 
 program
   .description('Convert annotated htmls and css files to a functional meteor app')
@@ -15,10 +15,10 @@ program
 program.on('--help', function () {
   console.log('  Examples:')
   console.log('')
-  console.log('    $ meterminator -c')
-  console.log('    $ meterminator -u')
-  console.log('    $ meterminator -u -i design/')
-  console.log('    $ meterminator -u -i design.html')
+  console.log('    $ stanza -c')
+  console.log('    $ stanza -u')
+  console.log('    $ stanza -u -i design/')
+  console.log('    $ stanza -u -i design.html')
   console.log('')
 })
 
@@ -41,4 +41,4 @@ var options = _.pick(
 
 var cleanedOptions = _.omitBy(options, _.isUndefined)
 
-meterminator(task, cleanedOptions)
+stanza(task, cleanedOptions)

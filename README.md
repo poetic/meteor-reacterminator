@@ -1,4 +1,4 @@
-# meterminator
+# stanza
 [![travis][travis-image]][travis-url]
 [![npm][npm-image]][npm-url]
 [![coverall][coverall-image]][coverall-url]
@@ -6,27 +6,27 @@
 
 [travis-image]:            https://travis-ci.com/poetic/stanza.svg?token=n9msxeiUd3RfRLLkqRQL&branch=master
 [travis-url]:              https://travis-ci.com/poetic/stanza
-[npm-image]:               https://img.shields.io/npm/v/meterminator.svg
-[npm-url]:                 https://npmjs.org/package/meterminator
-[coverall-image]:          https://coveralls.io/repos/github/poetic/meterminator/badge.svg?branch=master&t=DQDCRT
-[coverall-url]:            https://coveralls.io/github/poetic/meterminator
+[npm-image]:               https://img.shields.io/npm/v/stanza.svg
+[npm-url]:                 https://npmjs.org/package/stanza
+[coverall-image]:          https://coveralls.io/repos/github/poetic/stanza/badge.svg?branch=master&t=DQDCRT
+[coverall-url]:            https://coveralls.io/github/poetic/stanza
 [js-standard-style-image]: https://img.shields.io/badge/code%20style-standard-brightgreen.svg
 [js-standard-style-url]:   http://standardjs.com/
 
 ## Usage
 
-### How to user meterminator
+### How to user stanza
 ```
 meteor create --release 1.3 example
 cd example
-npm install -g poetic/meterminator
-meterminator --create
-meterminator --update
+npm install -g poetic/stanza
+stanza --create
+stanza --update
 ```
 
 ### CLI
 ```
-Usage: meterminator [options]
+Usage: stanza [options]
 
 Convert annotated htmls and css files to a functional meteor app
 
@@ -41,10 +41,10 @@ Options:
 
 Examples:
 
-  $ meterminator -c
-  $ meterminator -u
-  $ meterminator -u -i design/
-  $ meterminator -u -i design.html
+  $ stanza -c
+  $ stanza -u
+  $ stanza -u -i design/
+  $ stanza -u -i design.html
 ```
 
 ## Development

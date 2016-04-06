@@ -1,7 +1,7 @@
 /* eslint-env mocha */
 var fs = require('fs')
 var assert = require('chai').assert
-var meterminator = require('../../lib/index.js')
+var stanza = require('../../lib/index.js')
 var createMeteorProject = require('../helpers/create-meteor-project.js')
 
 describe('create', function () {
@@ -9,7 +9,7 @@ describe('create', function () {
 
   it('create a meteor app', function () {
     createMeteorProject()
-    meterminator('create')
+    stanza('create')
 
     assert(fs.statSync('client/main.jsx').isFile())
     assert(fs.statSync('.gitignore').isFile())

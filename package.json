@@ -1,9 +1,9 @@
 {
-  "name": "meterminator",
+  "name": "poetic-stanza",
   "version": "0.0.1",
-  "description": "Convert annotated htmls and css files to a functional meteor app.",
+  "description": "Poetic meteor-react project generator.",
   "main": "bin/index.js",
-  "bin": "bin/meterminator.js",
+  "bin": "bin/stanza.js",
   "scripts": {
     "test": "standard && istanbul cover _mocha --report lcovonly && coveralls < coverage/lcov.info",
     "test:watch": "mocha --watch",
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/poetic/meterminator.git"
+    "url": "https://github.com/poetic/stanza.git"
   },
   "keywords": [
     "Meteor",
@@ -22,9 +22,9 @@
   "author": "Chun-Yang",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/poetic/meterminator/issues"
+    "url": "https://github.com/poetic/stanza/issues"
   },
-  "homepage": "https://github.com/poetic/meterminator",
+  "homepage": "https://github.com/poetic/stanza",
   "devDependencies": {
     "chai": "^3.5.0",
     "coveralls": "^2.11.8",
@@ -37,7 +37,7 @@
     "chalk": "^1.1.1",
     "commander": "^2.9.0",
     "lodash": "^4.6.1",
-    "reacterminator": "^0.0.10",
+    "reacterminator": "^0.1.0",
     "shelljs": "^0.6.0"
   },
   "standard": {
