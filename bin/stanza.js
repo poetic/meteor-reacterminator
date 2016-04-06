@@ -5,7 +5,7 @@ var program = require('commander')
 var stanza = require('../lib/index')
 
 program
-  .description('Convert annotated htmls and css files to a functional meteor app')
+  .description('Poetic meteor-react project generator')
   .option('-c, --create', 'Remove default meteor files, add and remove packages for a react project')
   .option('-u, --update', 'Convert htmls, add the files into the meteor app')
   .option('-i, --input-path [./.design]', 'specify input path, it can be a file or a folder')
