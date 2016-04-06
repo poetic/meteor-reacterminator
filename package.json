@@ -3,11 +3,11 @@
   "version": "0.0.1",
   "description": "Poetic meteor-react project generator.",
   "main": "bin/index.js",
-  "bin": "bin/stanza.js",
+  "bin": {"stanza": "bin/stanza.js"},
   "scripts": {
     "test": "standard && istanbul cover _mocha --report lcovonly && coveralls < coverage/lcov.info",
-    "test:watch": "mocha --watch",
-    "test:fast": "mocha"
+    "watch": "mocha --watch",
+    "test-once": "mocha"
   },
   "repository": {
     "type": "git",
