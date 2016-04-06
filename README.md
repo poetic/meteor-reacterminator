@@ -15,13 +15,20 @@
 
 ## Usage
 
-### How to user stanza
+### How to use stanza
 ```
 meteor create --release 1.3 example
 cd example
 npm install -g poetic/stanza
 stanza --create
 stanza --update
+```
+
+### npm commands you can use after 'stanza --create'
+```
+npm test # linting, testing and coverage
+npm run lint # linting
+npm run lint:fix # automatically fix lint errors
 ```
 
 ### CLI
