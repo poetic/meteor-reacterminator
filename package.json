@@ -3,7 +3,9 @@
   "version": "0.0.1",
   "description": "Poetic meteor-react project generator.",
   "main": "bin/index.js",
-  "bin": {"stanza": "bin/stanza.js"},
+  "bin": {
+    "stanza": "bin/stanza.js"
+  },
   "scripts": {
     "test": "standard && istanbul cover _mocha --report lcovonly && coveralls < coverage/lcov.info",
     "watch": "mocha --watch",
@@ -37,7 +39,7 @@
     "chalk": "^1.1.1",
     "commander": "^2.9.0",
     "lodash": "^4.6.1",
-    "reacterminator": "latest",
+    "reacterminator": "github:poetic/reacterminator",
     "shelljs": "^0.6.0"
   },
   "standard": {
