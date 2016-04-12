@@ -22,6 +22,7 @@ cd example
 // make sure you have node 5.0 or above
 npm install -g poetic/stanza
 stanza --create
+// make sure you have the design file at ./design folder
 stanza --update
 ```
 
