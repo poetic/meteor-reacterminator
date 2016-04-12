@@ -19,6 +19,7 @@
 ```
 meteor create --release 1.3 example
 cd example
+// make sure you have node 5.0 or above
 npm install -g poetic/stanza
 stanza --create
 stanza --update
