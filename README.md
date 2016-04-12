@@ -43,8 +43,6 @@ Examples:
 
   $ stanza -c
   $ stanza -u
-  $ stanza -u -i design/
-  $ stanza -u -i design.html
 ```
 
 ### npm commands you can use after 'stanza --create'

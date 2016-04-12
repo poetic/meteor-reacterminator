@@ -14,33 +14,12 @@ program
     '-u, --update',
     'Convert htmls, add the files into the meteor app'
   )
-  .option(
-    '-i, --input-path [.design]', 'specify input path, it can be a file or a folder',
-    '.design'
-  )
-  .option(
-    '-r, --recursive [true]',
-    'find files in the input folder recursivly',
-    toBool,
-    true
-  )
-  .option(
-    '-o, --override-files [true]', 'override existing files in the output path',
-    toBool,
-    true
-  )
-
-function toBool (str) {
-  return /^t/i.test(str)
-}
 
 program.on('--help', function () {
   console.log('  Examples:')
   console.log('')
   console.log('    $ stanza -c')
   console.log('    $ stanza -u')
-  console.log('    $ stanza -u -i design/')
-  console.log('    $ stanza -u -i design.html')
   console.log('')
 })
 
@@ -51,16 +30,8 @@ if (!process.argv.slice(2).length) {
   process.exit(1)
 }
 
-// prepare options
 var task = _.find(['create', 'update'], function (taskName) {
   return program[taskName]
 })
 
-var options = _.pick(
-  program,
-  ['inputPath', 'recursive', 'overrideFiles']
-)
-
-var cleanedOptions = _.omitBy(options, _.isUndefined)
-
-stanza(task, cleanedOptions)
+stanza(task)
