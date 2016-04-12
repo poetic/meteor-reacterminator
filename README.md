@@ -35,9 +35,6 @@ Options:
   -h, --help                   output usage information
   -c, --create                 Remove default meteor files, configure packages for a react project
   -u, --update                 Convert htmls, add the files into the meteor app
-  -i, --input-path [.design/]  specify input path, it can be a file or a folder
-  -r, --recursive              find files in the input folder recursivly
-  -o, --override-files         override existing files in the output path
 
 Examples:
 
