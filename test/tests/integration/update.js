@@ -6,8 +6,6 @@ const stanza = require('../../../lib/index.js');
 const createMeteorProject = require('../helpers/create-meteor-project.js');
 
 describe('update', () => {
-  this.timeout(10 * 60 * 1000);
-
   it('update a meteor app', () => {
     createMeteorProject();
     shell.exec('mkdir -p client/imports/components/');

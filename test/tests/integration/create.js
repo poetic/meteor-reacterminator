@@ -5,8 +5,6 @@ const stanza = require('../../../lib/index.js');
 const createMeteorProject = require('../helpers/create-meteor-project.js');
 
 describe('create', () => {
-  this.timeout(10 * 60 * 1000);
-
   it('create a meteor app', () => {
     createMeteorProject();
     stanza('create');

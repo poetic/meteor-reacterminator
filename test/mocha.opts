@@ -1,2 +1,3 @@
 test/tests
 --recursive
+--timeout 50000
