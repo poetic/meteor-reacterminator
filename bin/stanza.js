@@ -1,8 +1,10 @@
 #! /usr/bin/env node
 
-var _ = require('lodash');
-var program = require('commander');
-var stanza = require('../lib/index');
+/* eslint-disable  no-console */
+
+const _ = require('lodash');
+const program = require('commander');
+const stanza = require('../lib/index');
 
 program
   .description('Poetic meteor-react project generator')
@@ -15,7 +17,7 @@ program
     'Convert htmls, add the files into the meteor app'
   );
 
-program.on('--help', function () {
+program.on('--help', () => {
   console.log('  Examples:');
   console.log('');
   console.log('    $ stanza -c');
@@ -30,8 +32,6 @@ if (!process.argv.slice(2).length) {
   process.exit(1);
 }
 
-var task = _.find(['create', 'update'], function (taskName) {
-  return program[taskName];
-});
+const task = _.find(['create', 'update'], (taskName) => program[taskName]);
 
 stanza(task);
