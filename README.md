@@ -21,7 +21,7 @@
 
 ### Example
 ```
-meteor create --release 1.3 example
+meteor create example
 cd example
 npm install -g poetic/stanza
 stanza --create
