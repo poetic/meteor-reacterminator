@@ -13,13 +13,16 @@
 [js-standard-style-image]: https://img.shields.io/badge/code%20style-standard-brightgreen.svg
 [js-standard-style-url]:   http://standardjs.com/
 
+## Requirements
+* node >= 5.0
+* java development kit must be installed to run tests (chimp uses selenium)
+
 ## Usage
 
 ### Example
 ```
 meteor create --release 1.3 example
 cd example
-// make sure you have node 5.0 or above
 npm install -g poetic/stanza
 stanza --create
 // make sure you have
