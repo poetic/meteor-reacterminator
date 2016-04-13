@@ -1,13 +1,13 @@
 /* eslint-env mocha */
-var fs = require('fs');
-var assert = require('chai').assert;
-var stanza = require('../../../lib/index.js');
-var createMeteorProject = require('../helpers/create-meteor-project.js');
+const fs = require('fs');
+const assert = require('chai').assert;
+const stanza = require('../../../lib/index.js');
+const createMeteorProject = require('../helpers/create-meteor-project.js');
 
-describe('create', function () {
+describe('create', () => {
   this.timeout(10 * 60 * 1000);
 
-  it('create a meteor app', function () {
+  it('create a meteor app', () => {
     createMeteorProject();
     stanza('create');
 
