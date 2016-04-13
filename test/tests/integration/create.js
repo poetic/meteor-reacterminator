@@ -1,7 +1,7 @@
 /* eslint-env mocha */
 var fs = require('fs')
 var assert = require('chai').assert
-var stanza = require('../../lib/index.js')
+var stanza = require('../../../lib/index.js')
 var createMeteorProject = require('../helpers/create-meteor-project.js')
 
 describe('create', function () {

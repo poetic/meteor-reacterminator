@@ -7,7 +7,8 @@
     "stanza": "bin/stanza.js"
   },
   "scripts": {
-    "test": "standard && istanbul cover _mocha --report lcovonly && coveralls < coverage/lcov.info",
+    "test": "npm run lint && istanbul cover _mocha --report lcovonly && coveralls < coverage/lcov.info",
+    "lint": "eslint . --ext .jsx, js",
     "watch": "mocha --watch",
     "test-once": "mocha"
   },
@@ -33,7 +34,10 @@
     "istanbul": "^0.4.2",
     "jsdoc": "^3.4.0",
     "mocha": "^2.4.5",
-    "standard": "^6.0.8"
+    "eslint": "^2.7.0",
+    "eslint-config-airbnb": "^7.0.0",
+    "eslint-plugin-jsx-a11y": "^0.6.2",
+    "eslint-plugin-react": "^4.3.0"
   },
   "dependencies": {
     "chalk": "^1.1.1",
