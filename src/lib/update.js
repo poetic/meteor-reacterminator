@@ -1,3 +1,5 @@
+/* eslint-disable  no-console */
+
 import _ from 'lodash';
 import reacterminator from 'reacterminator';
 import exec from './helpers/exec';

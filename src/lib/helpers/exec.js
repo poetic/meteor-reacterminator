@@ -1,3 +1,5 @@
+/* eslint-disable  no-console */
+
 import shell from 'shelljs';
 import chalk from 'chalk';
 
