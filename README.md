@@ -2,7 +2,6 @@
 [![travis][travis-image]][travis-url]
 [![npm][npm-image]][npm-url]
 [![coverall][coverall-image]][coverall-url]
-[![js-standard-style][js-standard-style-image]][js-standard-style-url]
 
 [travis-image]:            https://travis-ci.org/poetic/stanza.svg
 [travis-url]:              https://travis-ci.org/poetic/stanza
