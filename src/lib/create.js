@@ -31,8 +31,8 @@ export default function create() {
   const packageJSONObject = require(packageJSONPath);
   _.extend(packageJSONObject.scripts, {
     test: 'npm run lint && chimp --mocha --path=tests',
-    lint: 'eslint . --ext .jsx, js',
-    fix: 'eslint . --ext .jsx, js --fix',
+    lint: 'eslint . --ext .jsx,.js',
+    fix: 'eslint . --ext .jsx,.js --fix',
     watch: 'chimp --ddp=http://localhost:3000 --watch --mocha --path=tests',
   });
   fs.writeFileSync(
