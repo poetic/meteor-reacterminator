@@ -1,12 +1,12 @@
 /* eslint-disable  no-console */
 
-const _ = require('lodash');
-const fs = require('fs');
-const exec = require('./helpers/exec.js');
-const path = require('path');
-const chalk = require('chalk');
+import _ from 'lodash';
+import fs from 'fs';
+import exec from './helpers/exec';
+import path from 'path';
+import chalk from 'chalk';
 
-function create() {
+export default function create() {
   exec('rm ./client/* ./server/*');
   exec('meteor remove autopublish insecure blaze-html-templates');
   exec('meteor add static-html');
@@ -48,5 +48,3 @@ function create() {
   );
   console.log(chalk.green('stanza --update\n'));
 }
-
-module.exports = create;

@@ -1,8 +1,8 @@
 import _ from 'lodash';
-const create = require('./create.js');
-const update = require('./update.js');
+import create from './create';
+import update from './update';
 
-function stanza(task, opt) {
+export default function stanza(task, opt) {
   const options = _.extend({ inputPath: './.design/' }, opt);
 
   if (task === 'create') {
@@ -17,5 +17,3 @@ function stanza(task, opt) {
 
   throw new Error(`task is one of "init" and "update", but got: ${task}`);
 }
-
-module.exports = stanza;

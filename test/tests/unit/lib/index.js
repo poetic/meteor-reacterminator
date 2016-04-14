@@ -1,6 +1,6 @@
 /* eslint-env mocha */
-const assert = require('chai').assert;
-const stanza = require('../../../../src/lib/index.js');
+import { assert } from 'chai';
+import stanza from '../../../../src/lib/index.js';
 
 describe('index', () => {
   it('is a function', () => {

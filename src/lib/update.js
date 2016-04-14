@@ -1,11 +1,10 @@
+import _ from 'lodash';
+import reacterminator from 'reacterminator';
+import exec from './helpers/exec';
+import glob from 'glob';
+import chalk from 'chalk';
 
-const _ = require('lodash');
-const reacterminator = require('reacterminator');
-const exec = require('./helpers/exec.js');
-const glob = require('glob');
-const chalk = require('chalk');
-
-function update() {
+export default function update() {
   // images
   exec('mkdir -p public/images');
   exec('cp .design/images/* public/images');
@@ -48,5 +47,3 @@ function update() {
     }
   );
 }
-
-module.exports = update;

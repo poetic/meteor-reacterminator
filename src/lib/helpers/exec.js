@@ -1,7 +1,7 @@
-const shell = require('shelljs');
-const chalk = require('chalk');
+import shell from 'shelljs';
+import chalk from 'chalk';
 
-function exec(cmd, opt) {
+export default function exec(cmd, opt) {
   const options = opt || {};
 
   console.log(
@@ -11,5 +11,3 @@ function exec(cmd, opt) {
 
   shell.exec(cmd, options);
 }
-
-module.exports = exec;
