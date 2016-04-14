@@ -43,8 +43,8 @@ function create() {
   var packageJSONObject = require(packageJSONPath);
   _lodash2.default.extend(packageJSONObject.scripts, {
     test: 'npm run lint && chimp --mocha --path=tests',
-    lint: 'eslint . --ext .jsx, js',
-    fix: 'eslint . --ext .jsx, js --fix',
+    lint: 'eslint . --ext .jsx,.js',
+    fix: 'eslint . --ext .jsx,.js --fix',
     watch: 'chimp --ddp=http://localhost:3000 --watch --mocha --path=tests'
   });
   _fs2.default.writeFileSync(packageJSONPath, JSON.stringify(packageJSONObject, null, 2) + '\n');
