@@ -2,7 +2,7 @@
 const fs = require('fs');
 const shell = require('shelljs');
 const assert = require('chai').assert;
-const stanza = require('../../../lib/index.js');
+const stanza = require('../../../src/lib/index.js');
 const createMeteorProject = require('../helpers/create-meteor-project.js');
 
 describe('update', () => {

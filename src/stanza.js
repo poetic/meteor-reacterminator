@@ -2,9 +2,9 @@
 
 /* eslint-disable  no-console */
 
-const _ = require('lodash');
-const program = require('commander');
-const stanza = require('../lib/index');
+import _ from 'lodash';
+import program from 'commander';
+import stanza from './lib/index';
 
 program
   .description('Poetic meteor-react project generator')

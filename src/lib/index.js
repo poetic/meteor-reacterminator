@@ -1,4 +1,4 @@
-const _ = require('lodash');
+import _ from 'lodash';
 const create = require('./create.js');
 const update = require('./update.js');
 

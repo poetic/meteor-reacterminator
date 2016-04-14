@@ -1,3 +1,4 @@
 test/tests
 --recursive
 --timeout 600000
+--compilers js:babel-core/register
