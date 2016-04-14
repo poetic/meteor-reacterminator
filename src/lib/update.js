@@ -8,8 +8,37 @@ import chalk from 'chalk';
 import zipfile from 'zipfile';
 import fs from 'fs';
 
+// extract zip file
+function unzipDesign() {
+  // check if .design.zip exists
+  try {
+    const hasZipFile = fs.statSync('.design.zip').isFile();
+    if (!hasZipFile) {
+      return;
+    }
+  } catch (e) {
+    return;
+  }
+
+  // create necessary folder
+  exec('mkdir -p .design/');
+  exec('mkdir -p .design/css');
+  exec('mkdir -p .design/images');
+
+  // unzip the .design.zip file
+  console.log(chalk.bold('RUNNING: ') + chalk.green('unzip .design.zip'));
+  const zip = new zipfile.ZipFile('.design.zip');
+  zip.names.forEach((filePath) => {
+    // do not copy whole path path
+    if (/\/$/.test(filePath)) {
+      return;
+    }
+    zip.copyFileSync(filePath, `.design/${filePath}`);
+  });
+}
+
 export default function update() {
-  unzipDesign()
+  unzipDesign();
 
   // images
   exec('mkdir -p public/images');
@@ -33,8 +62,6 @@ export default function update() {
   });
 
   // javascript
-  exec('mkdir -p client/js');
-  exec('cp .design/js/* client/js');
 
   // reacterminator
   console.log(
@@ -52,34 +79,4 @@ export default function update() {
       fileToComponent: true,
     }
   );
-}
-
-// extract zip file
-function unzipDesign () {
-  // check if .design.zip exists
-  try {
-    const hasZipFile = fs.statSync('.design.zip').isFile()
-    if (!hasZipFile) {
-      return
-    }
-  } catch (e) {
-    return
-  }
-
-  // create necessary folder
-  exec('mkdir -p .design/');
-  exec('mkdir -p .design/css');
-  exec('mkdir -p .design/js');
-  exec('mkdir -p .design/images');
-
-  // unzip the .design.zip file
-  console.log(chalk.bold('RUNNING: ') + chalk.green('unzip .design.zip'))
-  const zip = new zipfile.ZipFile('.design.zip');
-  zip.names.forEach(function (filePath) {
-    // do not copy whole path path
-    if (/\/$/.test(filePath)) {
-      return
-    }
-    zip.copyFileSync(filePath, '.design/' + filePath)
-  })
 }
