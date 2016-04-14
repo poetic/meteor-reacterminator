@@ -42,7 +42,7 @@ function create() {
   var packageJSONPath = _path2.default.resolve('./package.json');
   var packageJSONObject = require(packageJSONPath);
   _lodash2.default.extend(packageJSONObject.scripts, {
-    test: 'npm run lint && chimp --mocha --path=tests',
+    test: 'npm run lint && chimp --mocha --path=tests --browser=phantomjs',
     lint: 'eslint . --ext .jsx,.js',
     fix: 'eslint . --ext .jsx,.js --fix',
     watch: 'chimp --ddp=http://localhost:3000 --watch --mocha --path=tests'
