@@ -30,7 +30,7 @@ export default function create() {
   const packageJSONPath = path.resolve('./package.json');
   const packageJSONObject = require(packageJSONPath);
   _.extend(packageJSONObject.scripts, {
-    test: 'npm run lint && chimp --mocha --path=tests',
+    test: 'npm run lint && chimp --mocha --path=tests --browser=phantomjs',
     lint: 'eslint . --ext .jsx,.js',
     fix: 'eslint . --ext .jsx,.js --fix',
     watch: 'chimp --ddp=http://localhost:3000 --watch --mocha --path=tests',
