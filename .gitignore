@@ -3,3 +3,4 @@ coverage
 npm-debug.log
 doc
 test/example
+.coveralls.yml
