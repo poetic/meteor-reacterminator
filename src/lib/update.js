@@ -5,8 +5,12 @@ import reacterminator from 'reacterminator';
 import exec from './helpers/exec';
 import glob from 'glob';
 import chalk from 'chalk';
+import zipfile from 'zipfile';
+import fs from 'fs';
 
 export default function update() {
+  unzipDesign()
+
   // images
   exec('mkdir -p public/images');
   exec('cp .design/images/* public/images');
@@ -48,4 +52,34 @@ export default function update() {
       fileToComponent: true,
     }
   );
+}
+
+// extract zip file
+function unzipDesign () {
+  // check if .design.zip exists
+  try {
+    const hasZipFile = fs.statSync('.design.zip').isFile()
+    if (!hasZipFile) {
+      return
+    }
+  } catch (e) {
+    return
+  }
+
+  // create necessary folder
+  exec('mkdir -p .design/');
+  exec('mkdir -p .design/css');
+  exec('mkdir -p .design/js');
+  exec('mkdir -p .design/images');
+
+  // unzip the .design.zip file
+  console.log(chalk.bold('RUNNING: ') + chalk.green('unzip .design.zip'))
+  const zip = new zipfile.ZipFile('.design.zip');
+  zip.names.forEach(function (filePath) {
+    // do not copy whole path path
+    if (/\/$/.test(filePath)) {
+      return
+    }
+    zip.copyFileSync(filePath, '.design/' + filePath)
+  })
 }
