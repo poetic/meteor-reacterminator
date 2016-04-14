@@ -53,7 +53,7 @@ Examples:
 ```
 npm test # linting, testing and coverage
 npm run lint # linting
-npm run lint:fix # automatically fix lint errors
+npm run fix # automatically fix lint errors
 ```
 
 ### travis-ci
