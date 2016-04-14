@@ -3,4 +3,3 @@ coverage
 npm-debug.log
 doc
 test/example
-dist
