@@ -20,10 +20,11 @@ function unzipDesign() {
     return;
   }
 
-  // create necessary folder
+  // create necessary folders
   exec('mkdir -p .design/');
-  exec('mkdir -p .design/css');
   exec('mkdir -p .design/images');
+  exec('mkdir -p .design/css');
+  exec('mkdir -p .design/js');
 
   // unzip the .design.zip file
   console.log(chalk.bold('RUNNING: ') + chalk.green('unzip .design.zip'));
@@ -61,9 +62,7 @@ export default function update() {
     }
   });
 
-  // javascript
-
-  // reacterminator
+  // html (reacterminator)
   console.log(
     chalk.bold('RUNNING: ') +
     chalk.green('REACTERMINATOR')
