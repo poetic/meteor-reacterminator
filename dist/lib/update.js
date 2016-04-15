@@ -47,10 +47,11 @@ function unzipDesign() {
     return;
   }
 
-  // create necessary folder
+  // create necessary folders
   (0, _exec2.default)('mkdir -p .design/');
-  (0, _exec2.default)('mkdir -p .design/css');
   (0, _exec2.default)('mkdir -p .design/images');
+  (0, _exec2.default)('mkdir -p .design/css');
+  (0, _exec2.default)('mkdir -p .design/js');
 
   // unzip the .design.zip file
   console.log(_chalk2.default.bold('RUNNING: ') + _chalk2.default.green('unzip .design.zip'));
@@ -85,9 +86,7 @@ function update() {
     }
   });
 
-  // javascript
-
-  // reacterminator
+  // html (reacterminator)
   console.log(_chalk2.default.bold('RUNNING: ') + _chalk2.default.green('REACTERMINATOR'));
   (0, _reacterminator2.default)({ type: 'path', content: '.design/' }, {
     outputPath: 'client/imports/components',
