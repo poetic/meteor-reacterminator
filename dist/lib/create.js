@@ -49,7 +49,7 @@ function create() {
   });
   _fs2.default.writeFileSync(packageJSONPath, JSON.stringify(packageJSONObject, null, 2) + '\n');
 
-  var templatesPath = _path2.default.resolve(__dirname, 'templates');
+  var templatesPath = _path2.default.resolve(__dirname, '../../templates');
   (0, _exec2.default)(['cp -R', templatesPath + '/.', './'].join(' '));
 
   console.log('\n==============================================\n');

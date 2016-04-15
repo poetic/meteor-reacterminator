@@ -39,7 +39,7 @@ export default function create() {
     packageJSONPath, `${JSON.stringify(packageJSONObject, null, 2)}\n`
   );
 
-  const templatesPath = path.resolve(__dirname, 'templates');
+  const templatesPath = path.resolve(__dirname, '../../templates');
   exec(['cp -R', `${templatesPath}/.`, './'].join(' '));
 
   console.log('\n==============================================\n');
