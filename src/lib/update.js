@@ -71,8 +71,8 @@ export default function update() {
   const firstHtml = fs.readFileSync(firstHtmlFilePath, 'utf-8');
   const styleFromHead = cheerio
     .load(firstHtml)('head style')
-    .html()
-  fs.writeFileSync('client/css/main.css', styleFromHead)
+    .html();
+  fs.writeFileSync('client/css/main.css', styleFromHead);
 
   // html (reacterminator)
   console.log(
