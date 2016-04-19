@@ -72,7 +72,9 @@ export default function update() {
   const styleFromHead = cheerio
     .load(firstHtml)('head style')
     .html();
-  fs.writeFileSync('client/css/main.css', styleFromHead);
+  if (styleFromHead) {
+    fs.writeFileSync('client/css/main.css', styleFromHead);
+  }
 
   // html (reacterminator)
   console.log(
