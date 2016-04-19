@@ -7,6 +7,7 @@ import glob from 'glob';
 import chalk from 'chalk';
 import zipfile from 'zipfile';
 import fs from 'fs';
+import cheerio from 'cheerio';
 
 // extract zip file
 function unzipDesign() {
@@ -27,7 +28,7 @@ function unzipDesign() {
   exec('mkdir -p .design/js');
 
   // unzip the .design.zip file
-  console.log(chalk.bold('RUNNING: ') + chalk.green('unzip .design.zip'));
+  console.log(chalk.bold('TASK: ') + chalk.green('unzip .design.zip'));
   const zip = new zipfile.ZipFile('.design.zip');
   zip.names.forEach((filePath) => {
     // do not copy whole path path
@@ -61,11 +62,22 @@ export default function update() {
       exec(`cp ${name} client/css/`);
     }
   });
+  //   extract css from head to main.css
+  console.log(
+    chalk.bold('TASK: ') +
+    chalk.green('copy style form html head to client/css/main.css')
+  );
+  const firstHtmlFilePath = _.first(glob.sync('.design/*.html'));
+  const firstHtml = fs.readFileSync(firstHtmlFilePath, 'utf-8');
+  const styleFromHead = cheerio
+    .load(firstHtml)('head style')
+    .html()
+  fs.writeFileSync('client/css/main.css', styleFromHead)
 
   // html (reacterminator)
   console.log(
-    chalk.bold('RUNNING: ') +
-    chalk.green('REACTERMINATOR')
+    chalk.bold('TASK: ') +
+    chalk.green('start reacterminator')
   );
   reacterminator(
     { type: 'path', content: '.design/' },

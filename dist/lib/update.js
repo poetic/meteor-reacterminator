@@ -33,9 +33,15 @@ var _fs = require('fs');
 
 var _fs2 = _interopRequireDefault(_fs);
 
+var _cheerio = require('cheerio');
+
+var _cheerio2 = _interopRequireDefault(_cheerio);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 // extract zip file
+/* eslint-disable  no-console */
+
 function unzipDesign() {
   // check if .design.zip exists
   try {
@@ -54,7 +60,7 @@ function unzipDesign() {
   (0, _exec2.default)('mkdir -p .design/js');
 
   // unzip the .design.zip file
-  console.log(_chalk2.default.bold('RUNNING: ') + _chalk2.default.green('unzip .design.zip'));
+  console.log(_chalk2.default.bold('TASK: ') + _chalk2.default.green('unzip .design.zip'));
   var zip = new _zipfile2.default.ZipFile('.design.zip');
   zip.names.forEach(function (filePath) {
     // do not copy whole path path
@@ -63,7 +69,7 @@ function unzipDesign() {
     }
     zip.copyFileSync(filePath, '.design/' + filePath);
   });
-} /* eslint-disable  no-console */
+}
 
 function update() {
   unzipDesign();
@@ -85,9 +91,15 @@ function update() {
       (0, _exec2.default)('cp ' + name + ' client/css/');
     }
   });
+  //   extract css from head to main.css
+  console.log(_chalk2.default.bold('TASK: ') + _chalk2.default.green('copy style form html head to client/css/main.css'));
+  var firstHtmlFilePath = _lodash2.default.first(_glob2.default.sync('.design/*.html'));
+  var firstHtml = _fs2.default.readFileSync(firstHtmlFilePath, 'utf-8');
+  var styleFromHead = _cheerio2.default.load(firstHtml)('head style').html();
+  _fs2.default.writeFileSync('client/css/main.css', styleFromHead);
 
   // html (reacterminator)
-  console.log(_chalk2.default.bold('RUNNING: ') + _chalk2.default.green('REACTERMINATOR'));
+  console.log(_chalk2.default.bold('TASK: ') + _chalk2.default.green('start reacterminator'));
   (0, _reacterminator2.default)({ type: 'path', content: '.design/' }, {
     outputPath: 'client/imports/components',
     changeLinksForParamStore: true,
