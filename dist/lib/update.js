@@ -96,7 +96,9 @@ function update() {
   var firstHtmlFilePath = _lodash2.default.first(_glob2.default.sync('.design/*.html'));
   var firstHtml = _fs2.default.readFileSync(firstHtmlFilePath, 'utf-8');
   var styleFromHead = _cheerio2.default.load(firstHtml)('head style').html();
-  _fs2.default.writeFileSync('client/css/main.css', styleFromHead);
+  if (styleFromHead) {
+    _fs2.default.writeFileSync('client/css/main.css', styleFromHead);
+  }
 
   // html (reacterminator)
   console.log(_chalk2.default.bold('TASK: ') + _chalk2.default.green('start reacterminator'));
