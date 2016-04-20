@@ -9,7 +9,7 @@ import chalk from 'chalk';
 export default function create() {
   exec('rm ./client/* ./server/*');
   exec('meteor remove autopublish insecure blaze-html-templates');
-  exec('meteor add static-html');
+  exec('meteor add static-html react-meteor-data');
   exec('meteor npm install --save react react-dom poetic/param-store');
   // NOTE: if we use meteor npm install, chimp will break
   exec('npm install --global chimp');
