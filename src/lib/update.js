@@ -3,6 +3,7 @@
 import _ from 'lodash';
 import reacterminator from 'reacterminator';
 import exec from './helpers/exec';
+import logTask from './helpers/log-task';
 import glob from 'glob';
 import chalk from 'chalk';
 import zipfile from 'zipfile';
@@ -21,14 +22,16 @@ function unzipDesign() {
     return;
   }
 
+  logTask('Regenerate .design/ folder');
+
   // create necessary folders
+  exec('rm -rf .design/');
   exec('mkdir -p .design/');
   exec('mkdir -p .design/images');
   exec('mkdir -p .design/css');
   exec('mkdir -p .design/js');
 
   // unzip the .design.zip file
-  console.log(chalk.bold('TASK: ') + chalk.green('unzip .design.zip'));
   const zip = new zipfile.ZipFile('.design.zip');
   zip.names.forEach((filePath) => {
     // do not copy whole path path
@@ -43,10 +46,14 @@ export default function update() {
   unzipDesign();
 
   // images
+  logTask('Regenerate images');
+  exec('rm -rf public/images');
   exec('mkdir -p public/images');
   exec('cp .design/images/* public/images');
 
   // css
+  logTask('Regenerate css');
+  exec('rm -rf client/css');
   exec('mkdir -p client/css');
   exec('mkdir -p client/css/lib');
   const cssFiles = glob.sync('.design/css/*.css');
@@ -63,10 +70,7 @@ export default function update() {
     }
   });
   //   extract css from head to main.css
-  console.log(
-    chalk.bold('TASK: ') +
-    chalk.green('copy style form html head to client/css/main.css')
-  );
+  console.log(chalk.green('create client/css/main.css from html head'));
   const firstHtmlFilePath = _.first(glob.sync('.design/*.html'));
   const firstHtml = fs.readFileSync(firstHtmlFilePath, 'utf-8');
   const styleFromHead = cheerio
@@ -77,10 +81,8 @@ export default function update() {
   }
 
   // html (reacterminator)
-  console.log(
-    chalk.bold('TASK: ') +
-    chalk.green('start reacterminator')
-  );
+  logTask('Regenerate components via reacterminator');
+  exec('rm -rf client/imports/components');
   reacterminator(
     { type: 'path', content: '.design/' },
     {

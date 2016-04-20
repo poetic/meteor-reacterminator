@@ -20,7 +20,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function exec(cmd, opt) {
   var options = opt || {};
 
-  console.log(_chalk2.default.bold('SHELL: ') + _chalk2.default.green(cmd));
+  console.log(_chalk2.default.green(cmd));
 
   _shelljs2.default.exec(cmd, options);
 }

@@ -17,6 +17,10 @@ var _exec = require('./helpers/exec');
 
 var _exec2 = _interopRequireDefault(_exec);
 
+var _logTask = require('./helpers/log-task');
+
+var _logTask2 = _interopRequireDefault(_logTask);
+
 var _glob = require('glob');
 
 var _glob2 = _interopRequireDefault(_glob);
@@ -40,8 +44,6 @@ var _cheerio2 = _interopRequireDefault(_cheerio);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 // extract zip file
-/* eslint-disable  no-console */
-
 function unzipDesign() {
   // check if .design.zip exists
   try {
@@ -53,14 +55,16 @@ function unzipDesign() {
     return;
   }
 
+  (0, _logTask2.default)('Regenerate .design/ folder');
+
   // create necessary folders
+  (0, _exec2.default)('rm -rf .design/');
   (0, _exec2.default)('mkdir -p .design/');
   (0, _exec2.default)('mkdir -p .design/images');
   (0, _exec2.default)('mkdir -p .design/css');
   (0, _exec2.default)('mkdir -p .design/js');
 
   // unzip the .design.zip file
-  console.log(_chalk2.default.bold('TASK: ') + _chalk2.default.green('unzip .design.zip'));
   var zip = new _zipfile2.default.ZipFile('.design.zip');
   zip.names.forEach(function (filePath) {
     // do not copy whole path path
@@ -69,16 +73,20 @@ function unzipDesign() {
     }
     zip.copyFileSync(filePath, '.design/' + filePath);
   });
-}
+} /* eslint-disable  no-console */
 
 function update() {
   unzipDesign();
 
   // images
+  (0, _logTask2.default)('Regenerate images');
+  (0, _exec2.default)('rm -rf public/images');
   (0, _exec2.default)('mkdir -p public/images');
   (0, _exec2.default)('cp .design/images/* public/images');
 
   // css
+  (0, _logTask2.default)('Regenerate css');
+  (0, _exec2.default)('rm -rf client/css');
   (0, _exec2.default)('mkdir -p client/css');
   (0, _exec2.default)('mkdir -p client/css/lib');
   var cssFiles = _glob2.default.sync('.design/css/*.css');
@@ -92,7 +100,7 @@ function update() {
     }
   });
   //   extract css from head to main.css
-  console.log(_chalk2.default.bold('TASK: ') + _chalk2.default.green('copy style form html head to client/css/main.css'));
+  console.log(_chalk2.default.green('create client/css/main.css from html head'));
   var firstHtmlFilePath = _lodash2.default.first(_glob2.default.sync('.design/*.html'));
   var firstHtml = _fs2.default.readFileSync(firstHtmlFilePath, 'utf-8');
   var styleFromHead = _cheerio2.default.load(firstHtml)('head style').html();
@@ -101,7 +109,8 @@ function update() {
   }
 
   // html (reacterminator)
-  console.log(_chalk2.default.bold('TASK: ') + _chalk2.default.green('start reacterminator'));
+  (0, _logTask2.default)('Regenerate components via reacterminator');
+  (0, _exec2.default)('rm -rf client/imports/components');
   (0, _reacterminator2.default)({ type: 'path', content: '.design/' }, {
     outputPath: 'client/imports/components',
     changeLinksForParamStore: true,
