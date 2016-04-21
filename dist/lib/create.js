@@ -30,8 +30,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function create() {
   (0, _exec2.default)('rm ./client/* ./server/*');
   (0, _exec2.default)('meteor remove autopublish insecure blaze-html-templates');
-  (0, _exec2.default)('meteor add static-html');
-  (0, _exec2.default)('meteor npm install --save react react-dom poetic/param-store');
+  (0, _exec2.default)('meteor add static-html react-meteor-data');
+  (0, _exec2.default)('meteor npm install --save react react-dom lodash poetic/param-store');
   // NOTE: if we use meteor npm install, chimp will break
   (0, _exec2.default)('npm install --global chimp');
   var devDependencies = ['eslint-config-airbnb', 'eslint-plugin-react', 'eslint', 'react-addons-test-utils', 'mocha'];
