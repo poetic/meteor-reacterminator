@@ -53,8 +53,6 @@ export default function create() {
   exec(['cp -R', `${templatesPath}/.`, './'].join(' '));
 
   console.log('\n==============================================\n');
-  console.log(
-    'You can run the following command after you prepared the files inside .design/ folder:'
-  );
+  console.log('Prepare design.zip from webflow or extracted .design/ folder and run:');
   console.log(chalk.green('stanza --update\n'));
 }

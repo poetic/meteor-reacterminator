@@ -66,6 +66,6 @@ function create() {
   (0, _exec2.default)(['cp -R', templatesPath + '/.', './'].join(' '));
 
   console.log('\n==============================================\n');
-  console.log('You can run the following command after you prepared the files inside .design/ folder:');
+  console.log('Prepare design.zip from webflow or extracted .design/ folder and run:');
   console.log(_chalk2.default.green('stanza --update\n'));
 }
