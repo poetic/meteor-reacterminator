@@ -43,11 +43,15 @@ var _cheerio2 = _interopRequireDefault(_cheerio);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+var DESIGN_FILE = 'design.zip';
+
 // extract zip file
+/* eslint-disable  no-console */
+
 function unzipDesign() {
-  // check if .design.zip exists
+  // check if DESIGN_FILE exists
   try {
-    var hasZipFile = _fs2.default.statSync('.design.zip').isFile();
+    var hasZipFile = _fs2.default.statSync(DESIGN_FILE).isFile();
     if (!hasZipFile) {
       return;
     }
@@ -64,8 +68,8 @@ function unzipDesign() {
   (0, _exec2.default)('mkdir -p .design/css');
   (0, _exec2.default)('mkdir -p .design/js');
 
-  // unzip the .design.zip file
-  var zip = new _zipfile2.default.ZipFile('.design.zip');
+  // unzip the DESIGN_FILE file
+  var zip = new _zipfile2.default.ZipFile(DESIGN_FILE);
   zip.names.forEach(function (filePath) {
     // do not copy whole path path
     if (/\/$/.test(filePath)) {
@@ -73,7 +77,7 @@ function unzipDesign() {
     }
     zip.copyFileSync(filePath, '.design/' + filePath);
   });
-} /* eslint-disable  no-console */
+}
 
 function update() {
   unzipDesign();

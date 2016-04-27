@@ -23,7 +23,7 @@ cd example
 npm install -g poetic/stanza
 stanza --create
 // make sure you have
-// .design.zip at the root the project or
+// design.zip at the root the project or
 // .design/ folder which contains all the webflow files
 stanza --update
 ```

@@ -10,11 +10,13 @@ import zipfile from 'zipfile';
 import fs from 'fs';
 import cheerio from 'cheerio';
 
+const DESIGN_FILE = 'design.zip';
+
 // extract zip file
 function unzipDesign() {
-  // check if .design.zip exists
+  // check if DESIGN_FILE exists
   try {
-    const hasZipFile = fs.statSync('.design.zip').isFile();
+    const hasZipFile = fs.statSync(DESIGN_FILE).isFile();
     if (!hasZipFile) {
       return;
     }
@@ -31,8 +33,8 @@ function unzipDesign() {
   exec('mkdir -p .design/css');
   exec('mkdir -p .design/js');
 
-  // unzip the .design.zip file
-  const zip = new zipfile.ZipFile('.design.zip');
+  // unzip the DESIGN_FILE file
+  const zip = new zipfile.ZipFile(DESIGN_FILE);
   zip.names.forEach((filePath) => {
     // do not copy whole path path
     if (/\/$/.test(filePath)) {
