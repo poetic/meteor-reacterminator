@@ -25,20 +25,32 @@ var _chalk = require('chalk');
 
 var _chalk2 = _interopRequireDefault(_chalk);
 
+var _logTask = require('./helpers/log-task');
+
+var _logTask2 = _interopRequireDefault(_logTask);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+/* eslint-disable  no-console */
+
 function create() {
-  (0, _exec2.default)('rm ./client/* ./server/*');
+  (0, _logTask2.default)('Clean client server and shared folder');
+  (0, _exec2.default)('rm -rf ./client ./server ./shared');
+  (0, _exec2.default)('mkdir  ./client ./server ./shared');
+
+  (0, _logTask2.default)('Install dependencies');
   (0, _exec2.default)('meteor remove autopublish insecure blaze-html-templates');
   (0, _exec2.default)('meteor add static-html react-meteor-data');
-  (0, _exec2.default)('meteor npm install --save react react-dom lodash poetic/param-store');
+  var dependencies = ['react', 'react-dom', 'lodash', 'react-addons-pure-render-mixin', // react-meteor-data depends on this
+  'poetic/param-store'];
+  (0, _exec2.default)('meteor npm install --save ' + dependencies.join(' '));
   // NOTE: if we use meteor npm install, chimp will break
   (0, _exec2.default)('npm install --global chimp');
   var devDependencies = ['eslint-config-airbnb', 'eslint-plugin-react', 'eslint', 'react-addons-test-utils', 'mocha'];
   (0, _exec2.default)('meteor npm install --save-dev ' + devDependencies.join(' '));
 
   // add test commands to package.json
-  console.log(_chalk2.default.bold('RUNNING: ') + _chalk2.default.green('ADD NPM COMMANDS'));
+  (0, _logTask2.default)('Add npm scripts');
   var packageJSONPath = _path2.default.resolve('./package.json');
   var packageJSONObject = require(packageJSONPath);
   _lodash2.default.extend(packageJSONObject.scripts, {
@@ -49,10 +61,11 @@ function create() {
   });
   _fs2.default.writeFileSync(packageJSONPath, JSON.stringify(packageJSONObject, null, 2) + '\n');
 
+  (0, _logTask2.default)('Copy boilerplate');
   var templatesPath = _path2.default.resolve(__dirname, '../../templates');
   (0, _exec2.default)(['cp -R', templatesPath + '/.', './'].join(' '));
 
   console.log('\n==============================================\n');
   console.log('You can run the following command after you prepared the files inside .design/ folder:');
   console.log(_chalk2.default.green('stanza --update\n'));
-} /* eslint-disable  no-console */
+}

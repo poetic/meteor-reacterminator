@@ -5,12 +5,24 @@ import fs from 'fs';
 import exec from './helpers/exec';
 import path from 'path';
 import chalk from 'chalk';
+import logTask from './helpers/log-task';
 
 export default function create() {
-  exec('rm ./client/* ./server/*');
+  logTask('Clean client server and shared folder');
+  exec('rm -rf ./client ./server ./shared');
+  exec('mkdir  ./client ./server ./shared');
+
+  logTask('Install dependencies');
   exec('meteor remove autopublish insecure blaze-html-templates');
   exec('meteor add static-html react-meteor-data');
-  exec('meteor npm install --save react react-dom lodash poetic/param-store');
+  const dependencies = [
+    'react',
+    'react-dom',
+    'lodash',
+    'react-addons-pure-render-mixin', // react-meteor-data depends on this
+    'poetic/param-store',
+  ];
+  exec(`meteor npm install --save ${dependencies.join(' ')}`);
   // NOTE: if we use meteor npm install, chimp will break
   exec('npm install --global chimp');
   const devDependencies = [
@@ -23,10 +35,7 @@ export default function create() {
   exec(`meteor npm install --save-dev ${devDependencies.join(' ')}`);
 
   // add test commands to package.json
-  console.log(
-    chalk.bold('RUNNING: ') +
-    chalk.green('ADD NPM COMMANDS')
-  );
+  logTask('Add npm scripts');
   const packageJSONPath = path.resolve('./package.json');
   const packageJSONObject = require(packageJSONPath);
   _.extend(packageJSONObject.scripts, {
@@ -39,6 +48,7 @@ export default function create() {
     packageJSONPath, `${JSON.stringify(packageJSONObject, null, 2)}\n`
   );
 
+  logTask('Copy boilerplate');
   const templatesPath = path.resolve(__dirname, '../../templates');
   exec(['cp -R', `${templatesPath}/.`, './'].join(' '));
 
