@@ -1,6 +1,6 @@
 {
   "name": "poetic-stanza",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "Poetic meteor-react project generator.",
   "main": "dist/lib/index.js",
   "bin": {
