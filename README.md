@@ -20,7 +20,7 @@
 ```
 meteor create example
 cd example
-npm install -g poetic/stanza
+npm install -g poetic-stanza
 stanza --create
 // make sure you have
 // design.zip at the root the project or
