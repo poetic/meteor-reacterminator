@@ -42,10 +42,10 @@ function create() {
   (0, _exec2.default)('meteor remove autopublish insecure blaze-html-templates');
   (0, _exec2.default)('meteor add static-html react-meteor-data');
   var dependencies = ['react', 'react-dom', 'lodash', 'react-addons-pure-render-mixin', // react-meteor-data depends on this
-  'poetic/param-store'];
+  'param-store'];
   (0, _exec2.default)('meteor npm install --save ' + dependencies.join(' '));
   // NOTE: if we use meteor npm install, chimp will break
-  (0, _exec2.default)('npm install --global chimp');
+  (0, _exec2.default)('npm list -g chimp || npm install --global chimp');
   var devDependencies = ['eslint-config-airbnb', 'eslint-plugin-react', 'eslint', 'react-addons-test-utils', 'mocha'];
   (0, _exec2.default)('meteor npm install --save-dev ' + devDependencies.join(' '));
 

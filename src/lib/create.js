@@ -20,11 +20,11 @@ export default function create() {
     'react-dom',
     'lodash',
     'react-addons-pure-render-mixin', // react-meteor-data depends on this
-    'poetic/param-store',
+    'param-store',
   ];
   exec(`meteor npm install --save ${dependencies.join(' ')}`);
   // NOTE: if we use meteor npm install, chimp will break
-  exec('npm install --global chimp');
+  exec('npm list -g chimp || npm install --global chimp');
   const devDependencies = [
     'eslint-config-airbnb',
     'eslint-plugin-react',
