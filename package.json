@@ -52,7 +52,6 @@
     "glob": "^7.0.3",
     "lodash": "^4.6.1",
     "reacterminator": "0.6.2",
-    "shelljs": "^0.6.0",
-    "zipfile": "^0.5.9"
+    "shelljs": "^0.6.0"
   }
 }

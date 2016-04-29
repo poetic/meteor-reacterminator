@@ -6,7 +6,6 @@ import exec from './helpers/exec';
 import logTask from './helpers/log-task';
 import glob from 'glob';
 import chalk from 'chalk';
-import zipfile from 'zipfile';
 import fs from 'fs';
 import cheerio from 'cheerio';
 
@@ -28,20 +27,7 @@ function unzipDesign() {
 
   // create necessary folders
   exec('rm -rf .design/');
-  exec('mkdir -p .design/');
-  exec('mkdir -p .design/images');
-  exec('mkdir -p .design/css');
-  exec('mkdir -p .design/js');
-
-  // unzip the DESIGN_FILE file
-  const zip = new zipfile.ZipFile(DESIGN_FILE);
-  zip.names.forEach((filePath) => {
-    // do not copy whole path path
-    if (/\/$/.test(filePath)) {
-      return;
-    }
-    zip.copyFileSync(filePath, `.design/${filePath}`);
-  });
+  exec(`unzip ${DESIGN_FILE} -d .design/`);
 }
 
 export default function update() {

@@ -29,10 +29,6 @@ var _chalk = require('chalk');
 
 var _chalk2 = _interopRequireDefault(_chalk);
 
-var _zipfile = require('zipfile');
-
-var _zipfile2 = _interopRequireDefault(_zipfile);
-
 var _fs = require('fs');
 
 var _fs2 = _interopRequireDefault(_fs);
@@ -43,11 +39,11 @@ var _cheerio2 = _interopRequireDefault(_cheerio);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+/* eslint-disable  no-console */
+
 var DESIGN_FILE = 'design.zip';
 
 // extract zip file
-/* eslint-disable  no-console */
-
 function unzipDesign() {
   // check if DESIGN_FILE exists
   try {
@@ -63,20 +59,7 @@ function unzipDesign() {
 
   // create necessary folders
   (0, _exec2.default)('rm -rf .design/');
-  (0, _exec2.default)('mkdir -p .design/');
-  (0, _exec2.default)('mkdir -p .design/images');
-  (0, _exec2.default)('mkdir -p .design/css');
-  (0, _exec2.default)('mkdir -p .design/js');
-
-  // unzip the DESIGN_FILE file
-  var zip = new _zipfile2.default.ZipFile(DESIGN_FILE);
-  zip.names.forEach(function (filePath) {
-    // do not copy whole path path
-    if (/\/$/.test(filePath)) {
-      return;
-    }
-    zip.copyFileSync(filePath, '.design/' + filePath);
-  });
+  (0, _exec2.default)('unzip ' + DESIGN_FILE + ' -d .design/');
 }
 
 function update() {
