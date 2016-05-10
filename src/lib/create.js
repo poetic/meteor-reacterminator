@@ -33,6 +33,7 @@ export default function create() {
     'eslint',
     'react-addons-test-utils',
     'mocha',
+    'faker',
   ];
   exec(`meteor npm install --save-dev ${devDependencies.join(' ')}`);
 
