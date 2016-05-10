@@ -21,8 +21,8 @@ export default function create() {
     'lodash',
     'react-addons-pure-render-mixin', // react-meteor-data depends on this
     'param-store',
-    'redux',
     'react-redux',
+    'redux-thunk',
   ];
   exec(`meteor npm install --save ${dependencies.join(' ')}`);
   // NOTE: if we use meteor npm install, chimp will break
