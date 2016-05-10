@@ -11,7 +11,7 @@ describe('app should exist', function () {
   });
 
   it('can create a list @watch', function () {
-    const doesExist = browser.waitForExist('render-target');
+    const doesExist = browser.waitForExist('#render-target');
 
     assert.equal(doesExist, true);
   });
