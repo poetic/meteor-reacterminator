@@ -40,6 +40,7 @@ export default function create() {
     'param-store',
     'react-redux',
     'redux-thunk',
+    'react-super-components',
   ];
   exec(`meteor npm install --save ${npmDependencies.join(' ')}`);
 
