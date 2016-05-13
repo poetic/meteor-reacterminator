@@ -1,6 +1,9 @@
 {
   "name": "poetic-stanza",
   "version": "0.3.6",
+  "engines" : {
+    "node" : ">=6.1.0"
+  },
   "description": "Poetic meteor-react project generator.",
   "main": "dist/lib/index.js",
   "bin": {
