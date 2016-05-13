@@ -14,7 +14,16 @@ export default function create() {
 
   logTask('Install dependencies');
   exec('meteor remove autopublish insecure blaze-html-templates');
-  exec('meteor add static-html react-meteor-data');
+
+  const meteorPackages = [
+    'static-html',
+    'react-meteor-data',
+    'aldeed:simple-schema',
+    'aldeed:collection2',
+    'dburles:collection-helpers',
+  ];
+  exec(`meteor add ${meteorPackages.join(' ')}`);
+
   const dependencies = [
     'react',
     'react-dom',
