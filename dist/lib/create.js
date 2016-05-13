@@ -39,23 +39,32 @@ function create() {
   (0, _exec2.default)('mkdir  ./client ./server ./shared');
 
   (0, _logTask2.default)('Install dependencies');
-  (0, _exec2.default)('meteor remove autopublish insecure blaze-html-templates');
-  (0, _exec2.default)('meteor add static-html react-meteor-data');
-  var dependencies = ['react', 'react-dom', 'lodash', 'react-addons-pure-render-mixin', // react-meteor-data depends on this
-  'param-store'];
-  (0, _exec2.default)('meteor npm install --save ' + dependencies.join(' '));
-  // NOTE: if we use meteor npm install, chimp will break
-  (0, _exec2.default)('npm list -g chimp || npm install --global chimp');
-  var devDependencies = ['eslint-config-airbnb', 'eslint-plugin-react', 'eslint', 'react-addons-test-utils', 'mocha'];
-  (0, _exec2.default)('meteor npm install --save-dev ' + devDependencies.join(' '));
 
-  // add test commands to package.json
+  // meteor dependencies
+  var meteorDependenciesToRemove = ['autopublish', 'insecure', 'blaze-html-templates'];
+  (0, _exec2.default)('meteor remove ' + meteorDependenciesToRemove.join(' '));
+
+  var meteorDependencies = ['static-html', 'react-meteor-data', 'aldeed:simple-schema', 'aldeed:collection2', 'dburles:collection-helpers'];
+  (0, _exec2.default)('meteor add ' + meteorDependencies.join(' '));
+
+  // npm dependencies
+  var npmDependencies = ['react', 'react-dom', 'lodash', 'react-addons-pure-render-mixin', // react-meteor-data depends on this
+  'param-store', 'react-redux', 'redux-thunk'];
+  (0, _exec2.default)('meteor npm install --save ' + npmDependencies.join(' '));
+
+  //   NOTE: if we use meteor npm install, chimp will break
+  (0, _exec2.default)('npm list -g chimp || npm install --global chimp');
+  var npmDevDependencies = ['eslint-config-airbnb', 'eslint-plugin-react', 'eslint', 'react-addons-test-utils', 'mocha', 'faker'];
+  (0, _exec2.default)('meteor npm install --save-dev ' + npmDevDependencies.join(' '));
+
+  // npm script commands
   (0, _logTask2.default)('Add npm scripts');
   var packageJSONPath = _path2.default.resolve('./package.json');
   var packageJSONObject = require(packageJSONPath);
   _lodash2.default.extend(packageJSONObject.scripts, {
     test: 'npm run lint && chimp --mocha --path=tests --browser=phantomjs',
     lint: 'eslint . --ext .jsx,.js',
+    'lint:quiet': 'eslint . --ext .jsx,.js || true',
     fix: 'eslint . --ext .jsx,.js --fix',
     watch: 'chimp --ddp=http://localhost:3000 --watch --mocha --path=tests'
   });

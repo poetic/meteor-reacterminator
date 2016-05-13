@@ -13,18 +13,26 @@ export default function create() {
   exec('mkdir  ./client ./server ./shared');
 
   logTask('Install dependencies');
-  exec('meteor remove autopublish insecure blaze-html-templates');
 
-  const meteorPackages = [
+  // meteor dependencies
+  const meteorDependenciesToRemove = [
+    'autopublish',
+    'insecure',
+    'blaze-html-templates',
+  ];
+  exec(`meteor remove ${meteorDependenciesToRemove.join(' ')}`);
+
+  const meteorDependencies = [
     'static-html',
     'react-meteor-data',
     'aldeed:simple-schema',
     'aldeed:collection2',
     'dburles:collection-helpers',
   ];
-  exec(`meteor add ${meteorPackages.join(' ')}`);
+  exec(`meteor add ${meteorDependencies.join(' ')}`);
 
-  const dependencies = [
+  // npm dependencies
+  const npmDependencies = [
     'react',
     'react-dom',
     'lodash',
@@ -33,10 +41,11 @@ export default function create() {
     'react-redux',
     'redux-thunk',
   ];
-  exec(`meteor npm install --save ${dependencies.join(' ')}`);
-  // NOTE: if we use meteor npm install, chimp will break
+  exec(`meteor npm install --save ${npmDependencies.join(' ')}`);
+
+  //   NOTE: if we use meteor npm install, chimp will break
   exec('npm list -g chimp || npm install --global chimp');
-  const devDependencies = [
+  const npmDevDependencies = [
     'eslint-config-airbnb',
     'eslint-plugin-react',
     'eslint',
@@ -44,15 +53,16 @@ export default function create() {
     'mocha',
     'faker',
   ];
-  exec(`meteor npm install --save-dev ${devDependencies.join(' ')}`);
+  exec(`meteor npm install --save-dev ${npmDevDependencies.join(' ')}`);
 
-  // add test commands to package.json
+  // npm script commands
   logTask('Add npm scripts');
   const packageJSONPath = path.resolve('./package.json');
   const packageJSONObject = require(packageJSONPath);
   _.extend(packageJSONObject.scripts, {
     test: 'npm run lint && chimp --mocha --path=tests --browser=phantomjs',
     lint: 'eslint . --ext .jsx,.js',
+    'lint:quiet': 'eslint . --ext .jsx,.js || true',
     fix: 'eslint . --ext .jsx,.js --fix',
     watch: 'chimp --ddp=http://localhost:3000 --watch --mocha --path=tests',
   });
