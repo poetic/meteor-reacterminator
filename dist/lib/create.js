@@ -49,7 +49,7 @@ function create() {
 
   // npm dependencies
   var npmDependencies = ['react', 'react-dom', 'lodash', 'react-addons-pure-render-mixin', // react-meteor-data depends on this
-  'param-store', 'react-redux', 'redux-thunk'];
+  'param-store', 'react-redux', 'redux-thunk', 'react-super-components'];
   (0, _exec2.default)('meteor npm install --save ' + npmDependencies.join(' '));
 
   //   NOTE: if we use meteor npm install, chimp will break
