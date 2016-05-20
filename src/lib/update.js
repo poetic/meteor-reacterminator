@@ -70,7 +70,6 @@ export default function update() {
 
   // html (reacterminator)
   logTask('Regenerate components via reacterminator');
-  exec('rm -rf client/imports/components');
   reacterminator(
     { type: 'path', content: '.design/' },
     {

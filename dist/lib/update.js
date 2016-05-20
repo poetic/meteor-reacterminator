@@ -97,7 +97,6 @@ function update() {
 
   // html (reacterminator)
   (0, _logTask2.default)('Regenerate components via reacterminator');
-  (0, _exec2.default)('rm -rf client/imports/components');
   (0, _reacterminator2.default)({ type: 'path', content: '.design/' }, {
     outputPath: 'client/imports/components',
     changeLinksForParamStore: true,
