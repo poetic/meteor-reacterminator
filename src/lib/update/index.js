@@ -9,7 +9,6 @@ import chalk from 'chalk';
 import fs from 'fs';
 import cheerio from 'cheerio';
 import path from 'path';
-import regenerateMain from './regenerate-main'
 
 const DESIGN_FILE = 'design.zip';
 
