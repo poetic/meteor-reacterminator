@@ -37,13 +37,17 @@ var _cheerio = require('cheerio');
 
 var _cheerio2 = _interopRequireDefault(_cheerio);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _path = require('path');
 
-/* eslint-disable  no-console */
+var _path2 = _interopRequireDefault(_path);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var DESIGN_FILE = 'design.zip';
 
 // extract zip file
+/* eslint-disable  no-console */
+
 function unzipDesign() {
   // check if DESIGN_FILE exists
   try {
@@ -95,6 +99,9 @@ function update() {
     _fs2.default.writeFileSync('client/css/main.css', styleFromHead);
   }
 
+  // change main.jsx if it is still the default file
+  regenerateMain();
+
   // html (reacterminator)
   (0, _logTask2.default)('Regenerate components via reacterminator');
   (0, _reacterminator2.default)({ type: 'path', content: '.design/' }, {
@@ -105,4 +112,20 @@ function update() {
     overrideFiles: true,
     fileToComponent: true
   });
+}
+
+function regenerateMain() {
+  var currentContent = _fs2.default.readFileSync('./client/main.jsx', 'utf-8');
+  var defaultContent = _fs2.default.readFileSync(_path2.default.resolve(__dirname, '../../templates/client/main.jsx'), 'utf-8');
+  var isDefault = currentContent === defaultContent;
+
+  if (!isDefault) {
+    return;
+  }
+
+  (0, _logTask2.default)('Regenerate ./client/main.jsx');
+
+  var MAIN_JSX_TEMPLATE = 'import React from \'react\';\nimport { Meteor } from \'meteor/meteor\';\nimport { render } from \'react-dom\';\nimport AppWrapper from \'./imports/custom-components/AppWrapper.jsx\';\n\nMeteor.startup(() => {\n  render(<AppWrapper />, document.getElementById(\'render-target\'));\n});\n';
+
+  _fs2.default.writeFileSync('./client/main.jsx', MAIN_JSX_TEMPLATE);
 }

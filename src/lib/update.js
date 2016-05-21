@@ -8,6 +8,7 @@ import glob from 'glob';
 import chalk from 'chalk';
 import fs from 'fs';
 import cheerio from 'cheerio';
+import path from 'path';
 
 const DESIGN_FILE = 'design.zip';
 
@@ -68,6 +69,9 @@ export default function update() {
     fs.writeFileSync('client/css/main.css', styleFromHead);
   }
 
+  // change main.jsx if it is still the default file
+  regenerateMain()
+
   // html (reacterminator)
   logTask('Regenerate components via reacterminator');
   reacterminator(
@@ -81,4 +85,32 @@ export default function update() {
       fileToComponent: true,
     }
   );
+}
+
+function regenerateMain () {
+  const currentContent = fs.readFileSync('./client/main.jsx', 'utf-8');
+  const defaultContent = fs.readFileSync(
+    path.resolve(__dirname, '../../templates/client/main.jsx'),
+    'utf-8'
+  );
+  const isDefault = currentContent === defaultContent;
+
+  if (!isDefault) {
+    return;
+  }
+
+  logTask('Regenerate ./client/main.jsx');
+
+  const MAIN_JSX_TEMPLATE = `\
+import React from 'react';
+import { Meteor } from 'meteor/meteor';
+import { render } from 'react-dom';
+import AppWrapper from './imports/custom-components/AppWrapper.jsx';
+
+Meteor.startup(() => {
+  render(<AppWrapper />, document.getElementById('render-target'));
+});
+`;
+
+  fs.writeFileSync('./client/main.jsx', MAIN_JSX_TEMPLATE);
 }
