@@ -103,9 +103,6 @@ function update() {
     _fs2.default.writeFileSync('client/css/main.css', styleFromHead);
   }
 
-  // change main.jsx if it is still the default file
-  (0, _regenerateMain2.default)();
-
   // html (reacterminator)
   (0, _logTask2.default)('Regenerate components via reacterminator');
   (0, _reacterminator2.default)({ type: 'path', content: '.design/' }, {
