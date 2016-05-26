@@ -8,7 +8,6 @@ import glob from 'glob';
 import chalk from 'chalk';
 import fs from 'fs';
 import cheerio from 'cheerio';
-import path from 'path';
 
 const DESIGN_FILE = 'design.zip';
 
