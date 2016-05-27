@@ -1,6 +1,6 @@
 {
   "name": "poetic-stanza",
-  "version": "0.3.7",
+  "version": "0.3.8",
   "engines": {
     "node": ">=6.1.0"
   },
