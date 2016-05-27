@@ -1,6 +1,5 @@
 {
   "name": "poetic-stanza",
-  "version": "0.3.8",
   "engines": {
     "node": ">=6.1.0"
   },
@@ -15,7 +14,8 @@
     "test": "npm run lint && istanbul cover _mocha && coveralls < coverage/lcov.info",
     "lint": "eslint . --ext .jsx,.js",
     "fix": "eslint . --ext .jsx,.js --fix",
-    "watch": "mocha --watch"
+    "watch": "mocha --watch",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "repository": {
     "type": "git",
@@ -46,7 +46,8 @@
     "eslint-plugin-react": "^4.3.0",
     "istanbul": "^1.0.0-alpha.2",
     "jsdoc": "^3.4.0",
-    "mocha": "^2.4.5"
+    "mocha": "^2.4.5",
+    "semantic-release": "^4.3.5"
   },
   "dependencies": {
     "chalk": "^1.1.1",
