@@ -37,17 +37,13 @@ var _cheerio = require('cheerio');
 
 var _cheerio2 = _interopRequireDefault(_cheerio);
 
-var _path = require('path');
-
-var _path2 = _interopRequireDefault(_path);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/* eslint-disable  no-console */
 
 var DESIGN_FILE = 'design.zip';
 
 // extract zip file
-/* eslint-disable  no-console */
-
 function unzipDesign() {
   // check if DESIGN_FILE exists
   try {
