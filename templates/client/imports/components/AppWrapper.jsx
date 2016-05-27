@@ -4,7 +4,7 @@ import _ from 'lodash';
 import { Meteor } from 'meteor/meteor';
 import { createContainer } from 'meteor/react-meteor-data';
 import ParamStore from 'param-store';
-import App from '../readonly-components/App.jsx';
+import App from './App.jsx';
 
 const Loading = () => (
   <div>
