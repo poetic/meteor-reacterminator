@@ -4,38 +4,45 @@ import _ from 'lodash';
 import { Meteor } from 'meteor/meteor';
 import { createContainer } from 'meteor/react-meteor-data';
 import ParamStore from 'param-store';
-import App from './App.jsx';
+import App from './App';
+import Index from './Index'
 
-const Loading = () => (
-  <div>
-    Please replace me with Loading component or a splash screen component.
-  </div>
-);
-
-const Login = () => (
-  <div>
-    Please replace me with Login component.
-  </div>
-);
-
-const PUBLIC_ROUTES = [];
+const PUBLIC_ROUTES = [
+  'login',
+];
 
 class AppWrapper extends React.Component {
+  isAuthorized({loggingIn, loggedIn}) {
+    const isPublicRoute = _.includes(PUBLIC_ROUTES, ParamStore.get('path'));
+    return isPublicRoute || loggedIn;
+  }
+
+  redirectToLoginWhenUnauthorized({loggingIn, loggedIn}) {
+    if (loggingIn) {
+      return;
+    }
+
+    if (!this.isAuthorized({loggingIn, loggedIn})) {
+      ParamStore.set({path: 'login'})
+    }
+  }
+
+  componentWillMount() {
+    this.redirectToLoginWhenUnauthorized(this.props)
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.redirectToLoginWhenUnauthorized(nextProps)
+  }
+
   render() {
     const {loggingIn, loggedIn} = this.props
 
-    if (loggingIn) {
-      return <Loading />;
+    if (loggingIn || !this.isAuthorized({loggingIn, loggedIn})) {
+      return <Index noRedirect={true} />;
     }
 
-    const isPublicRoute = _.includes(PUBLIC_ROUTES, ParamStore.get('path'));
-    const isAuthorized = isPublicRoute || loggedIn;
-
-    if (!isAuthorized) {
-      return <Login />;
-    }
-
-    return <App />
+    return <App />;
   }
 }
 
