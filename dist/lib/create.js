@@ -49,18 +49,20 @@ function create() {
 
   // npm dependencies
   var npmDependencies = ['react', 'react-dom', 'lodash', 'react-addons-pure-render-mixin', // react-meteor-data depends on this
-  'param-store', 'react-redux', 'redux-thunk', 'react-super-components'];
+  'param-store', 'react-redux', 'redux-thunk', 'react-super-components', 'eslint-config-poetic'];
   (0, _exec2.default)('meteor npm install --save ' + npmDependencies.join(' '));
 
   //   NOTE: if we use meteor npm install, chimp will break
   (0, _exec2.default)('npm list -g chimp || npm install --global chimp');
-  var npmDevDependencies = ['eslint-config-airbnb', 'eslint-plugin-react', 'eslint', 'react-addons-test-utils', 'mocha', 'faker'];
+  var npmDevDependencies = ['eslint-config-poetic', 'react-addons-test-utils', 'mocha', 'faker'];
   (0, _exec2.default)('meteor npm install --save-dev ' + npmDevDependencies.join(' '));
 
   // npm script commands
   (0, _logTask2.default)('Add npm scripts');
   var packageJSONPath = _path2.default.resolve('./package.json');
+  var eslintrcJSPath = _path2.default.resolve('./.eslintrc.js');
   var packageJSONObject = require(packageJSONPath);
+  var eslintrcJSObject = { extends: 'poetic' };
   _lodash2.default.extend(packageJSONObject.scripts, {
     test: 'npm run lint && chimp --mocha --path=tests --browser=phantomjs',
     lint: 'eslint . --ext .jsx,.js',
@@ -69,6 +71,7 @@ function create() {
     watch: 'chimp --ddp=http://localhost:3000 --watch --mocha --path=tests'
   });
   _fs2.default.writeFileSync(packageJSONPath, JSON.stringify(packageJSONObject, null, 2) + '\n');
+  _fs2.default.writeFileSync(eslintrcJSPath, JSON.stringify(eslintrcJSObject, null, 2) + '\n');
 
   (0, _logTask2.default)('Copy boilerplate');
   var templatesPath = _path2.default.resolve(__dirname, '../../templates');

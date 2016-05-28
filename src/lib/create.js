@@ -7,6 +7,7 @@ import path from 'path';
 import chalk from 'chalk';
 import logTask from './helpers/log-task';
 
+
 export default function create() {
   logTask('Clean client server and shared folder');
   exec('rm -rf ./client ./server ./shared');
@@ -41,15 +42,14 @@ export default function create() {
     'react-redux',
     'redux-thunk',
     'react-super-components',
+    'eslint-config-poetic',
   ];
   exec(`meteor npm install --save ${npmDependencies.join(' ')}`);
 
   //   NOTE: if we use meteor npm install, chimp will break
   exec('npm list -g chimp || npm install --global chimp');
   const npmDevDependencies = [
-    'eslint-config-airbnb',
-    'eslint-plugin-react',
-    'eslint',
+    'eslint-config-poetic',
     'react-addons-test-utils',
     'mocha',
     'faker',
@@ -59,7 +59,9 @@ export default function create() {
   // npm script commands
   logTask('Add npm scripts');
   const packageJSONPath = path.resolve('./package.json');
+  const eslintrcJSPath = path.resolve('./.eslintrc.js');
   const packageJSONObject = require(packageJSONPath);
+  const eslintrcJSObject = { extends: 'poetic' };
   _.extend(packageJSONObject.scripts, {
     test: 'npm run lint && chimp --mocha --path=tests --browser=phantomjs',
     lint: 'eslint . --ext .jsx,.js',
@@ -69,6 +71,9 @@ export default function create() {
   });
   fs.writeFileSync(
     packageJSONPath, `${JSON.stringify(packageJSONObject, null, 2)}\n`
+  );
+  fs.writeFileSync(
+    eslintrcJSPath, `${JSON.stringify(eslintrcJSObject, null, 2)}\n`
   );
 
   logTask('Copy boilerplate');
