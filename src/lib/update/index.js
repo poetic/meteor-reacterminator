@@ -73,7 +73,7 @@ export default function update() {
   reacterminator(
     { type: 'path', content: '.design/' },
     {
-      outputPath: 'client/imports/generated',
+      outputPath: 'client/imports',
       changeLinksForParamStore: true,
       generateFiles: true,
       recursive: true,
