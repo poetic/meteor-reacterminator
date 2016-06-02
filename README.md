@@ -59,4 +59,4 @@ Remember to push a commit after you do this.
 
 ## Development
 
-### [Trello](https://trello.com/b/WUNN44Dp/meterminator)
+### [Trello](https://trello.com/b/WUNN44Dp/stanza)
