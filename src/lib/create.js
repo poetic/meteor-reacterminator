@@ -7,7 +7,6 @@ import path from 'path';
 import chalk from 'chalk';
 import logTask from './helpers/log-task';
 
-
 export default function create() {
   logTask('Clean client server and shared folder');
   exec('rm -rf ./client ./server ./shared');
