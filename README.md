@@ -21,11 +21,11 @@
 meteor create example
 cd example
 npm install -g poetic-stanza
-stanza --create
+stanza -c
 // make sure you have
 // design.zip at the root the project or
 // .design/ folder which contains all the webflow files
-stanza --update
+stanza -u
 ```
 
 ### CLI
@@ -59,4 +59,4 @@ Remember to push a commit after you do this.
 
 ## Development
 
-### [Trello](https://trello.com/b/WUNN44Dp/meterminator)
+### [Trello](https://trello.com/b/WUNN44Dp/stanza)
