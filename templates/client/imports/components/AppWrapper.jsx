@@ -1,56 +1,65 @@
-// custom
 import React from 'react';
 import _ from 'lodash';
 import { Meteor } from 'meteor/meteor';
 import { createContainer } from 'meteor/react-meteor-data';
 import ParamStore from 'param-store';
 import App from './App';
-import Index from './Index'
-
-const PUBLIC_ROUTES = [
-  'login',
-];
+import { ReactiveVar } from 'meteor/reactive-var';
+import subscribeAll from '../subscribe-all';
 
 class AppWrapper extends React.Component {
-  isAuthorized({loggingIn, loggedIn}) {
-    const isPublicRoute = _.includes(PUBLIC_ROUTES, ParamStore.get('path'));
-    return isPublicRoute || loggedIn;
-  }
+  constructor (props) {
+    super(props);
 
-  redirectToLoginWhenUnauthorized({loggingIn, loggedIn}) {
-    if (loggingIn) {
-      return;
+    this.state = {
+      path: ParamStore.get('path')
     }
 
-    if (!this.isAuthorized({loggingIn, loggedIn})) {
-      ParamStore.set({path: 'login'})
-    }
-  }
-
-  componentWillMount() {
-    this.redirectToLoginWhenUnauthorized(this.props)
-  }
-
-  componentWillReceiveProps(nextProps) {
-    this.redirectToLoginWhenUnauthorized(nextProps)
+    ParamStore.listen(
+      'path',
+      ({changedParams}) => {
+        this.setState({activeLayerIndex: changedParams['path']});
+      }
+    );
   }
 
   render() {
-    const {loggingIn, loggedIn} = this.props
+    const { loading, loggedIn } = this.props;
 
-    if (loggingIn || !this.isAuthorized({loggingIn, loggedIn})) {
-      return <Index noRedirect={true} />;
+    // TODO: make sure you have 'loading' path
+    if (loading) {
+      return <App path='loading' />;
+    }
+
+    // TODO: put all routes that do not need authorization here
+    const PUBLIC_ROUTES = [
+      'login',
+    ];
+
+    const isNotAuthorizedPath =
+      !loggedIn && !_.includes(PUBLIC_ROUTES, this.state.path);
+
+    // TODO: make sure you have 'login' path, or change login to the correct path name
+    if (isNotAuthorizedPath) {
+      return <App path='login' />;
     }
 
     return <App />;
   }
 }
 
-const AppWrapperWithContainer = createContainer(() => {
-  return {
-    loggingIn: Meteor.loggingIn(),
-    loggedIn: Boolean(Meteor.user())
-  }
-}, AppWrapper)
+// TODO: put all subscriptions you need before rending the app
+const GLOBAL_SUBSCRIPTIONS = [];
 
-export default AppWrapperWithContainer;
+const allSubscriptionsReady = subscribeAll(GLOBAL_SUBSCRIPTIONS);
+
+const AppWrapperWithData = createContainer(() => {
+  const loggedIn = Boolean(Meteor.user())
+
+  return {
+    loading: Meteor.loggingIn() || (loggedIn && !allSubscriptionsReady.get()),
+    loggedIn,
+  }
+}, AppWrapper);
+
+export default AppWrapperWithData;

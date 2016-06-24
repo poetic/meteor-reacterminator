@@ -23,6 +23,7 @@ export default function create() {
   exec(`meteor remove ${meteorDependenciesToRemove.join(' ')}`);
 
   const meteorDependencies = [
+    'accounts-base',
     'static-html',
     'react-meteor-data',
     'aldeed:simple-schema',
