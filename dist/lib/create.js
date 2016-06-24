@@ -44,7 +44,7 @@ function create() {
   var meteorDependenciesToRemove = ['autopublish', 'insecure', 'blaze-html-templates'];
   (0, _exec2.default)('meteor remove ' + meteorDependenciesToRemove.join(' '));
 
-  var meteorDependencies = ['static-html', 'react-meteor-data', 'aldeed:simple-schema', 'aldeed:collection2', 'dburles:collection-helpers'];
+  var meteorDependencies = ['accounts-base', 'static-html', 'react-meteor-data', 'aldeed:simple-schema', 'aldeed:collection2', 'dburles:collection-helpers'];
   (0, _exec2.default)('meteor add ' + meteorDependencies.join(' '));
 
   // npm dependencies
