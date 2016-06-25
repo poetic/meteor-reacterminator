@@ -1,8 +1,8 @@
 /* eslint-env mocha */
-import fs from 'fs';
-import { assert } from 'chai';
-import stanza from '../../../src/lib/index';
-import createMeteorProject from '../helpers/create-meteor-project';
+const fs = require('fs');
+const stanza = require('../../../lib/index');
+const createMeteorProject = require('../helpers/create-meteor-project');
+const assert = require('chai').assert;
 
 describe('create', () => {
   it('create a meteor app', () => {

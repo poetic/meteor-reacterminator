@@ -2,12 +2,14 @@
 
 /* eslint-disable  no-console */
 
-import _ from 'lodash';
-import program from 'commander';
-import stanza from './lib/index';
+const _ = require('lodash');
+const program = require('commander');
+const stanza = require('../lib/index');
+const { version, description } = require('../package.json');
 
 program
-  .description('Poetic meteor-react project generator')
+  .version(version)
+  .description(description)
   .option(
     '-c, --create',
     'Remove default meteor files, add and remove packages for a react project'
@@ -20,8 +22,8 @@ program
 program.on('--help', () => {
   console.log('  Examples:');
   console.log('');
-  console.log('    $ stanza -c');
-  console.log('    $ stanza -u');
+  console.log('    $ stanza c');
+  console.log('    $ stanza u');
   console.log('');
 });
 
