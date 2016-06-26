@@ -5,7 +5,8 @@
   },
   "description": "Poetic meteor-react-webflow project generator.",
   "bin": {
-    "stanza": "bin/stanza.js"
+    "stanza": "bin/stanza.js",
+    "st": "bin/stanza.js"
   },
   "scripts": {
     "test": "npm run lint && istanbul cover _mocha && coveralls < coverage/lcov.info",
