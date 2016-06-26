@@ -19,6 +19,9 @@
 
 ## Usage
 
+### Alias
+`st`
+
 ### Example
 ```
 npm install -g poetic-stanza
