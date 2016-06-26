@@ -1,13 +1,17 @@
 /* eslint-env mocha */
 const fs = require('fs');
-const stanza = require('../../../lib/index');
-const createMeteorProject = require('../helpers/create-meteor-project');
-const assert = require('chai').assert;
+const { assert } = require('chai');
+const path = require('path');
+const create = require('../../../lib/create');
+const { cd, rm } = require('shelljs');
 
 describe('create', () => {
   it('create a meteor app', () => {
-    createMeteorProject();
-    stanza('create');
+    const testRoot = path.resolve(__dirname, '../../');
+    cd(testRoot);
+    rm('-rf', 'example');
+
+    create('example');
 
     assert(fs.statSync('client/main.jsx').isFile());
     assert(fs.statSync('.gitignore').isFile());

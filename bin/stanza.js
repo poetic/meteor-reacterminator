@@ -1,23 +1,20 @@
 #! /usr/bin/env node
-
 /* eslint-disable  no-console */
 
-const _ = require('lodash');
 const program = require('commander');
-const stanza = require('../lib/index');
 const { version, description } = require('../package.json');
 
 program
   .version(version)
-  .description(description)
-  .option(
-    '-c, --create',
-    'Remove default meteor files, add and remove packages for a react project'
-  )
-  .option(
-    '-u, --update',
-    'Convert htmls, add the files into the meteor app'
-  );
+  .description(description);
+
+program
+  .command('create <name>', 'Create a meteor project with react and redux configured.')
+  .alias('c');
+
+program
+  .command('update', 'Update a meteor project with design.zip from webflow.')
+  .alias('u');
 
 program.on('--help', () => {
   console.log('  Examples:');
@@ -28,12 +25,3 @@ program.on('--help', () => {
 });
 
 program.parse(process.argv);
-
-if (!process.argv.slice(2).length) {
-  program.outputHelp();
-  process.exit(1);
-}
-
-const task = _.find(['create', 'update'], (taskName) => program[taskName]);
-
-stanza(task);

@@ -21,32 +21,35 @@
 
 ### Example
 ```
-meteor create example
-cd example
 npm install -g poetic-stanza
-stanza -c
-// make sure you have
-// design.zip at the root the project or
-// .design/ folder which contains all the webflow files
-stanza -u
+stanza create magic
+cd magic
+cp ~/Downloads/magic.zip ./ # magic.zip is exported from webflow
+stanza update
 ```
 
 ### CLI
 ```
-Usage: stanza [options]
+Usage: stanza [options] [command]
 
-Convert annotated htmls and css files to a functional meteor app
+
+Commands:
+
+  create|c <name>  Create a meteor project with react and redux configured.
+  update|u         Update a meteor project with design.zip from webflow.
+  help [cmd]       display help for [cmd]
+
+Poetic meteor-react-webflow project generator.
 
 Options:
 
-  -h, --help                   output usage information
-  -c, --create                 Remove default meteor files, configure packages for a react project
-  -u, --update                 Convert htmls, add the files into the meteor app
+  -h, --help     output usage information
+  -V, --version  output the version number
 
 Examples:
 
-  $ stanza -c
-  $ stanza -u
+  $ stanza c
+  $ stanza u
 ```
 
 ### npm commands you can use after 'stanza --create'
