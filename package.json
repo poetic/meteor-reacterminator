@@ -4,6 +4,7 @@
     "node": ">=6.1.0"
   },
   "description": "Poetic meteor-react-webflow project generator.",
+  "main": "lib/create.js",
   "bin": {
     "stanza": "stanza.js"
   },
