@@ -48,7 +48,7 @@ Options:
 
 Examples:
 
-  $ stanza c
+  $ stanza c my-project
   $ stanza u
 ```
 
