@@ -52,15 +52,8 @@ Examples:
   $ stanza u
 ```
 
-### npm commands you can use after 'stanza --create'
-```
-npm test # linting, testing and coverage
-npm run lint # linting
-npm run fix # automatically fix lint errors
-```
-
 ### travis-ci
-Go to [travis-ci](https://travis-ci.com/profile/poetic) enable the repo.
+Go to [travis-ci](https://travis-ci.com/) enable the repo.
 Remember to push a commit after you do this.
 
 ## Development
