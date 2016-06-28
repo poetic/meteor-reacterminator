@@ -48,7 +48,7 @@ class AppWrapper extends React.Component {
   }
 }
 
-// TODO: put all subscriptions you need before rending the app
+// TODO: put all subscriptions you need before rendering the app
 const GLOBAL_SUBSCRIPTIONS = [];
 
 const allSubscriptionsReady = subscribeAll(GLOBAL_SUBSCRIPTIONS);
