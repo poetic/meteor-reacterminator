@@ -4,7 +4,6 @@ import { Meteor } from 'meteor/meteor';
 import { createContainer } from 'meteor/react-meteor-data';
 import ParamStore from 'param-store';
 import App from './App';
-import { ReactiveVar } from 'meteor/reactive-var';
 import subscribeAll from '../subscribe-all';
 
 class AppWrapper extends React.Component {
