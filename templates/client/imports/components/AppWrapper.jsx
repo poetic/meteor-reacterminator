@@ -18,7 +18,7 @@ class AppWrapper extends React.Component {
     ParamStore.listen(
       'path',
       ({changedParams}) => {
-        this.setState({activeLayerIndex: changedParams['path']});
+        this.setState({path: changedParams['path']});
       }
     );
   }
