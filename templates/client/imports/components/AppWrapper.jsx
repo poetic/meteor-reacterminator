@@ -43,7 +43,7 @@ class AppWrapper extends React.Component {
       return <App path='login' />;
     }
 
-    return <App />;
+    return <App path={this.state.path} />;
   }
 }
 
