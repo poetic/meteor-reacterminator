@@ -48,7 +48,7 @@
   "dependencies": {
     "chalk": "^1.1.1",
     "cheerio": "^0.20.0",
-    "commander": "rike422/commander.js#81577a6544b52fb22fee60f5e2c660c6565c04bf",
+    "commander": "^2.9.0",
     "glob": "^7.0.3",
     "lodash": "^4.6.1",
     "reacterminator": "latest",
