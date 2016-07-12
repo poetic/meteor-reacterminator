@@ -14,7 +14,7 @@
 [coverall-url]:            https://coveralls.io/github/poetic/stanza
 
 ## Requirements
-* node >= 6.1.0
+* node >= 6.0.0
 * java development kit must be installed to run tests (chimp uses selenium)
 
 ## Usage

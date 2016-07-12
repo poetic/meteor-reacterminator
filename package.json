@@ -1,7 +1,7 @@
 {
   "name": "poetic-stanza",
   "engines": {
-    "node": ">=6.1.0"
+    "node": ">=6.0.0"
   },
   "description": "Poetic meteor-react-webflow project generator.",
   "bin": {
