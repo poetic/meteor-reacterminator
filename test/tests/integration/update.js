@@ -16,7 +16,7 @@ describe('update', () => {
 
     update();
 
-    assert(fs.statSync('client/imports/components/ComponentA.jsx').isFile());
+    assert(fs.statSync('client/imports/generated/components/ComponentA.jsx').isFile());
     assert(fs.statSync('public/images/webflow.jpg').isFile());
     assert(fs.statSync('client/css/lib/webflow.css').isFile());
   });
