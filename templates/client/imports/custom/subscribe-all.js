@@ -1,3 +1,4 @@
+// TODO: extract this into a package
 import { Meteor } from 'meteor/meteor';
 import { Tracker } from 'meteor/tracker';
 import { ReactiveVar } from 'meteor/reactive-var';
