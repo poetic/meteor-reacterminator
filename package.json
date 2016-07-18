@@ -51,7 +51,7 @@
     "commander": "^2.9.0",
     "glob": "^7.0.3",
     "lodash": "^4.6.1",
-    "reacterminator": "latest",
+    "reacterminator": "^0.10.9",
     "shelljs": "^0.6.0"
   }
 }
