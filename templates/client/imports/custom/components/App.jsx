@@ -3,7 +3,7 @@ import _ from 'lodash';
 import { Meteor } from 'meteor/meteor';
 import { createContainer } from 'meteor/react-meteor-data';
 import ParamStore from 'param-store';
-import subscribeAll from '../subscribe-all';
+import subscribeAll from 'meteor/poetic:meteor-subscribe-all';
 
 export default (Origin) => {
   class App extends React.Component {

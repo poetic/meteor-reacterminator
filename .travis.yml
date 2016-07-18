@@ -6,7 +6,6 @@ cache:
 notifications:
   email: false
 before_install:
-  - npm i -g npm@^2.0.0
   - curl https://install.meteor.com | /bin/sh
   - export PATH="$HOME/.meteor:$PATH"
 before_script:
