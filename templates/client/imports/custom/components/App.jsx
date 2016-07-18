@@ -5,7 +5,7 @@ import { createContainer } from 'meteor/react-meteor-data';
 import ParamStore from 'param-store';
 import subscribeAll from 'meteor/poetic:meteor-subscribe-all';
 
-export default (Origin) => {
+export default (Base) => {
   class App extends React.Component {
     constructor (props) {
       super(props);
@@ -27,7 +27,7 @@ export default (Origin) => {
 
       // TODO: make sure you have 'loading' path
       if (loading) {
-        return <Origin path='loading' />;
+        return <Base path='loading' />;
       }
 
       // TODO: put all routes that do not need authorization here
@@ -40,10 +40,10 @@ export default (Origin) => {
 
       // TODO: make sure you have 'login' path, or change login to the correct path name
       if (isNotAuthorizedPath) {
-        return <Origin path='login' />;
+        return <Base path='login' />;
       }
 
-      return <Origin />;
+      return <Base />;
     }
   }
 
