@@ -2,13 +2,13 @@
 const fs = require('fs');
 const { assert } = require('chai');
 const path = require('path');
-const create = require('../../../lib/create');
+const create = require('../../lib/create');
 const { cd, rm } = require('shelljs');
 
 describe('create', () => {
   it('create a meteor app', () => {
-    const testRoot = path.resolve(__dirname, '../../');
-    cd(testRoot);
+    const examplesPath = path.resolve(__dirname, '../../examples');
+    cd(examplesPath);
     rm('-rf', 'example');
 
     create('example');

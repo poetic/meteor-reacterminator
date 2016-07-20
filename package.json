@@ -12,7 +12,7 @@
     "test": "npm run lint && istanbul cover _mocha && coveralls < coverage/lcov.info",
     "lint": "eslint . --ext .jsx,.js",
     "fix": "eslint . --ext .jsx,.js --fix",
-    "watch": "mocha --watch",
+    "watch": "rm -rf examples/example && mocha --watch",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "repository": {

@@ -2,5 +2,5 @@ node_modules
 coverage
 npm-debug.log
 doc
-test/example
+examples/example
 .coveralls.yml
