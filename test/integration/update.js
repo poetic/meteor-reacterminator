@@ -13,11 +13,15 @@ describe('update', () => {
     mkdir('./example');
     cp('-R', 'design', 'example/.design');
     cd('example');
+    mkdir('client');
+    cp(path.resolve(examplesPath, '../templates/client/main.html'), 'client/main.html');
 
     update();
 
     assert(fs.statSync('client/imports/generated/components/ComponentA.jsx').isFile());
     assert(fs.statSync('public/images/webflow.jpg').isFile());
     assert(fs.statSync('client/css/lib/webflow.css').isFile());
+    const mainHtml = fs.readFileSync('client/main.html', 'utf-8');
+    assert.include(mainHtml, 'WebFont.load');
   });
 });
