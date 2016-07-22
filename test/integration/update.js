@@ -21,6 +21,7 @@ describe('update', () => {
     assert(fs.statSync('client/imports/generated/components/ComponentA.jsx').isFile());
     assert(fs.statSync('public/images/webflow.jpg').isFile());
     assert(fs.statSync('client/css/lib/webflow.css').isFile());
+    assert(fs.statSync('public/fonts/Avenir-Book.ttf').isFile());
     const mainHtml = fs.readFileSync('client/main.html', 'utf-8');
     assert.include(mainHtml, 'WebFont.load');
   });
