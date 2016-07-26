@@ -4,11 +4,18 @@
 const program = require('commander');
 const create = require('../lib/create');
 
-let projectName;
+const action = (name) => {
+  if (!name) {
+    console.error('ERROR: No name given!');
+    process.exit(1);
+  }
+
+  create(name);
+}
 
 program
   .arguments('<name>')
-  .action((name) => { projectName = name; });
+  .action(action);
 
 program.on('--help', () => {
   console.log('Create a meteor project with react and redux configured.');
@@ -16,10 +23,3 @@ program.on('--help', () => {
 });
 
 program.parse(process.argv);
-
-if (!projectName) {
-  console.error('ERROR: No name given!');
-  process.exit(1);
-}
-
-create(projectName);
