@@ -19,7 +19,7 @@ program
 program.on('--help', () => {
   console.log('  Examples:');
   console.log('');
-  console.log('    $ stanza c');
+  console.log('    $ stanza c my-project');
   console.log('    $ stanza u');
   console.log('');
 });
