@@ -1,2 +1,3 @@
+client/imports/generated/
 node_modules/
 npm-debug.log
