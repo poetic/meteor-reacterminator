@@ -16,6 +16,10 @@ program
   .command('update', 'Update a meteor project with design.zip from webflow.')
   .alias('u');
 
+program
+  .command('generate', 'Generate a custom file and update custom/index.js.')
+  .alias('g');
+
 program.on('--help', () => {
   console.log('  Examples:');
   console.log('');
