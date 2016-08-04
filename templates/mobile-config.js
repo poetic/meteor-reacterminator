@@ -1,3 +1,4 @@
+// NOTE: app id can NOT contain "-" (android would break if we have that)
 App.info({
   id: 'com.poeticsystems.XXX',
   name: 'XXX',
@@ -45,9 +46,10 @@ App.launchScreens({
   'android_xxhdpi_portrait': 'resources/launch-screens/android_xxhdpi_portrait.png',
 });
 
-App.setPreference('Orientation', 'portrait');
+// App.setPreference('Orientation', 'portrait');
 
 App.accessRule('*');
 App.accessRule('content://*');
 App.accessRule('http://*');
 App.accessRule('https://*');
+App.accessRule('blob:*');
