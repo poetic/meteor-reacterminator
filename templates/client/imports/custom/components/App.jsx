@@ -22,12 +22,12 @@ export default (Base) => {
       );
     }
 
-    render() {
+    path () {
       const { loading, loggedIn } = this.props;
 
       // TODO: make sure you have 'loading' path
       if (loading) {
-        return <Base path='loading' />;
+        return 'loading';
       }
 
       // TODO: put all routes that do not need authorization here
@@ -40,10 +40,12 @@ export default (Base) => {
 
       // TODO: make sure you have 'login' path, or change login to the correct path name
       if (isNotAuthorizedPath) {
-        return <Base path='login' />;
+        return 'login';
       }
+    }
 
-      return <Base />;
+    render() {
+      return <Base path={ this.path() }/>;
     }
   }
 
