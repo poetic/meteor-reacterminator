@@ -31,6 +31,8 @@ cp ~/Downloads/magic.zip ./ # magic.zip is exported from webflow
 stanza update
 ```
 
+### [Demo App](https://github.com/poetic/stanza-demo)
+
 ### CLI
 ```
 Usage: stanza [options] [command]
