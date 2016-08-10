@@ -1,4 +1,4 @@
 .design/
-client/js/
-client/components/
 node_modules/
+client/js/
+client/imports/generated/
