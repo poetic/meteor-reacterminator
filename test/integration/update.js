@@ -14,7 +14,10 @@ describe('update', () => {
     cp('-R', 'design', 'example/.design');
     cd('example');
     mkdir('client');
-    cp(path.resolve(examplesPath, '../templates/client/main.html'), 'client/main.html');
+    cp(
+      path.resolve(examplesPath, '../lib/create/templates/client/main.html'),
+      'client/main.html'
+    );
 
     update();
 

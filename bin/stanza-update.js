@@ -2,7 +2,7 @@
 /* eslint-disable  no-console */
 
 const program = require('commander');
-const update = require('../lib/update');
+const update = require('../lib/update/index');
 
 program.on('--help', () => {
   console.log('Update the meteor project using the design.zip from webflow');
