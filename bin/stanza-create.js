@@ -6,13 +6,14 @@ const create = require('../lib/create');
 
 program
   .arguments('<name>')
-  .action((name) => {
+  .option('-a, --apollo')
+  .action((name, options) => {
     if (!name) {
       console.error('ERROR: No name given!');
       process.exit(1);
     }
 
-    create(name);
+    create(name, options);
   });
 
 program.on('--help', () => {
