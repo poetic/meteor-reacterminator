@@ -13,7 +13,6 @@ program
       process.exit(1);
     }
 
-    console.log(options);
     create(name, options);
   });
 
