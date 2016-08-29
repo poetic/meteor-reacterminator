@@ -27,7 +27,11 @@
 npm install -g poetic-stanza
 stanza create magic
 cd magic
-cp ~/Downloads/magic.zip ./ # magic.zip is exported from webflow
+
+// dowload your webflow project as a zip file
+// copy into current directory as design.zip
+cp ~/Downloads/magic.zip ./design.zip 
+
 stanza update
 ```
 
