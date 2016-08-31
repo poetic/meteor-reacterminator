@@ -46,7 +46,7 @@
     "commander": "git://github.com/tj/commander.js.git#c6236d9504b60d9a2e6aa7fc3ce17a12f48f4a3e",
     "glob": "^7.0.3",
     "lodash": "^4.6.1",
-    "reacterminator": "^0.15.0",
+    "reacterminator": "^0.15.1",
     "shelljs": "^0.6.0"
   }
 }
